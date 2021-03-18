@@ -173,6 +173,12 @@ mixAssetsDir("vendor/fonts/*/*", (src, dest) => mix.copy(src, dest));
  | ThoTam assets
  |--------------------------------------------------------------------------
  */
+mixAssetsDir("audio", (src, dest) => mix.copyDirectory(src, dest));
+mixAssetsDir("img", (src, dest) => mix.copyDirectory(src, dest));
+mixAssetsDir("json", (src, dest) => mix.copyDirectory(src, dest));
+mixAssetsDir("video", (src, dest) => mix.copyDirectory(src, dest));
+mixAssetsDir("favicon", (src, dest) => mix.copyDirectory(src, dest));
+mixAssetsDir("favicon.ico", (src, dest) => mix.copy(src, dest));
 
 mixAssetsDir("css/**/*.css", (src, dest) => mix.copy(src, dest));
 
