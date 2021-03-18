@@ -79,7 +79,7 @@
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
                     <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
                         <img src="/img/avatars/cpc1hn.png" alt class="d-block ui-w-30 rounded-circle">
-                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">Mike Greene</span>
+                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">CPC1 Hà Nội</span>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
