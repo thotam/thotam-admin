@@ -10,7 +10,7 @@
         "hot": "npx mix watch --hot",
         "prod": "npm run production",
         "production": "npx mix --production"
-  },
+    },
     "devDependencies": {
         "cross-env": "~7.0.2",
         "laravel-mix": "~6.0.13",
@@ -98,7 +98,10 @@
         "toastr": "~2.1.4",
         "typeahead.js": "~0.11.1",
         "url-polyfill": "^1.1.7",
-        "vanilla-text-mask": "~5.1.1"
+        "vanilla-text-mask": "~5.1.1",
+        "datatables.net-buttons-bs4": "^1.7.0",
+        "jszip": "^3.6.0",
+        "pdfmake": "^0.1.70"
     },
     "browserslist": [
         ">= 1%",
@@ -115,23 +118,26 @@
     ],
     "babel": {
         "presets": [
-            ["@babel/env", {
-                "targets": {
-                    "browsers": [
-                        ">= 1%",
-                        "last 2 versions",
-                        "not dead",
-                        "Chrome >= 45",
-                        "Firefox >= 38",
-                        "Edge >= 12",
-                        "Explorer >= 10",
-                        "iOS >= 9",
-                        "Safari >= 9",
-                        "Android >= 4.4",
-                        "Opera >= 30"
-                    ]
+            [
+                "@babel/env",
+                {
+                    "targets": {
+                        "browsers": [
+                            ">= 1%",
+                            "last 2 versions",
+                            "not dead",
+                            "Chrome >= 45",
+                            "Firefox >= 38",
+                            "Edge >= 12",
+                            "Explorer >= 10",
+                            "iOS >= 9",
+                            "Safari >= 9",
+                            "Android >= 4.4",
+                            "Opera >= 30"
+                        ]
+                    }
                 }
-            }]
+            ]
         ]
     }
 }
