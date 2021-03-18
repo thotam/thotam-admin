@@ -47,12 +47,15 @@
     <link rel="stylesheet" href="{{ mix('/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}">
 
     @yield('styles')
+    @stack('styles')
+
+    @livewireStyles
 
     <!-- Application stylesheets -->
     <link rel="stylesheet" href="{{ mix('/css/application.css') }}">
 
 </head>
-<body>
+<body @yield('bodyclass')>
 
     <!-- PACE.js loader -->
     <div class="page-loader"><div class="bg-primary"></div></div>
@@ -72,6 +75,11 @@
 
     @yield('scripts')
 
+    @livewireScripts
+    <!-- Application javascripts -->
+    <script src="{{ mix('/js/application.js') }}"></script>
+    @stack('datatables')
+    @stack('livewires')
     <!-- Application javascripts -->
     <script src="{{ mix('/js/application.js') }}"></script>
 
