@@ -24,7 +24,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Install this Project
 
 ```php
-composer create-project thotam/thotam-framework thotam
+composer create-project thotam/thotam-admin thotam
 ```
 
 ```php
