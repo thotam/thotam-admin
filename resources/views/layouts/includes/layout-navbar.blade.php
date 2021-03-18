@@ -26,16 +26,6 @@
         <!-- Divider -->
         <hr class="d-lg-none w-100 my-2">
 
-        <div class="navbar-nav align-items-lg-center">
-            <!-- Search -->
-            <label class="nav-item navbar-text navbar-search-box p-0 active">
-                <i class="ion ion-ios-search navbar-icon align-middle"></i>
-                <span class="navbar-search-input pl-2">
-                    <input type="text" class="form-control navbar-text mx-2" placeholder="Search..." style="width:200px">
-                </span>
-            </label>
-        </div>
-
         <div class="navbar-nav align-items-lg-center ml-auto">
             <div class="demo-navbar-notifications nav-item dropdown mr-lg-3">
                 <a class="nav-link dropdown-toggle hide-arrow" href="#" data-toggle="dropdown">
