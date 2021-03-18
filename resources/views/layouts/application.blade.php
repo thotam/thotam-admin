@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
-    <title>{{ isset($title) ? $title.' - ' : '' }}Laravel Starter</title>
+    <title>{{ isset($title) ? $title.' - ' : '' }}CPC1 Hà Nội - Tiên phong công nghệ dược phẩm</title>
 
     <!-- Main font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ mix('/vendor/css/theme-cotton-material.css') }}">
     <link rel="stylesheet" href="{{ mix('/vendor/css/colors-material.css') }}">
     <link rel="stylesheet" href="{{ mix('/vendor/css/uikit.css') }}">
+    <link rel="stylesheet" href="{{ mix('/css/thotam.css') }}">
 
     <!-- Load polyfills -->
     <script src="{{ mix('/vendor/js/polyfills.js') }}"></script>
