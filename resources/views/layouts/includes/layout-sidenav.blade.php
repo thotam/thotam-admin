@@ -6,7 +6,7 @@
         <span class="app-brand-logo demo bg-white">
             @include('layouts.includes.sub.logo')
         </span>
-        <a href="/" class="app-brand-text demo sidenav-text font-weight-normal ml-2">CPC1 Hà Nội</a>
+        <span class="app-brand-text demo sidenav-text font-weight-normal ml-2">CPC1 Hà Nội</span>
         <a href="javascript:void(0)" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
             <i class="ion ion-md-menu align-middle"></i>
         </a>
