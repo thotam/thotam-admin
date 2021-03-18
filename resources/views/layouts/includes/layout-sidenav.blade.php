@@ -1,5 +1,20 @@
 <div id="layout-sidenav" class="{{ isset($layout_sidenav_horizontal) ? 'layout-sidenav-horizontal sidenav-horizontal container-p-x flex-grow-0' : 'layout-sidenav sidenav-vertical' }} sidenav bg-dark">
 
+    @empty($layout_sidenav_horizontal)
+    <!-- Brand demo (see assets/css/demo/demo.css) -->
+    <div class="app-brand demo">
+        <span class="app-brand-logo demo bg-white">
+            @include('layouts.includes.sub.logo')
+        </span>
+        <a href="/" class="app-brand-text demo sidenav-text font-weight-normal ml-2">CPC1 Hà Nội</a>
+        <a href="javascript:void(0)" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
+            <i class="ion ion-md-menu align-middle"></i>
+        </a>
+    </div>
+
+    <div class="sidenav-divider mt-0"></div>
+    @endempty
+
     <!-- Inner -->
     <ul class="sidenav-inner{{ empty($layout_sidenav_horizontal) ? ' py-1' : '' }}">
 
