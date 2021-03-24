@@ -107,3 +107,27 @@ $(document).on("click", "[thotam-file-upload-blockui]", function () {
 $(document).on("click", "[thotam-blockui]", function () {
     ThoTam_BlockUI();
 });
+
+//Ẩn toàn bộ modal
+window.addEventListener("hide_modal", function (e) {
+    $(".modal.fade").modal("hide");
+});
+
+//Hiện modal cụ thể
+window.addEventListener("show_modal", (event) => {
+    $(event.detail).modal("show");
+});
+
+//Toastr thông báo
+window.addEventListener("toastr", (event) => {
+    toastr[event.detail.type](event.detail.message, event.detail.title, {
+        positionClass: "toast-top-right",
+        closeButton: true,
+        progressBar: true,
+        timeOut: 15000,
+        extendedTimeOut: 2000,
+        preventDuplicates: false,
+        newestOnTop: true,
+        rtl: $("body").attr("dir") === "rtl" || $("html").attr("dir") === "rtl",
+    });
+});
