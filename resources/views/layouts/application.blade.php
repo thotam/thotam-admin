@@ -80,8 +80,6 @@
     <script src="{{ mix('/js/application.js') }}"></script>
     @stack('datatables')
     @stack('livewires')
-    <!-- Application javascripts -->
-    <script src="{{ mix('/js/application.js') }}"></script>
 
 </body>
 </html>

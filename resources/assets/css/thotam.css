@@ -277,3 +277,262 @@ html:not(.material-style) .material-style-only {
     code {
     color: #666 !important;
 }
+
+html:not([dir="rtl"]) .border-left.border-left-3 {
+    border-left-width: 3px !important;
+}
+
+.action-icon:hover {
+    cursor: pointer;
+}
+
+pre {
+    font-family: inherit;
+}
+
+pre.thotam-pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    font-size: 100%;
+    color: inherit;
+    margin: 0;
+    font-family: inherit;
+}
+span.select2-selection__rendered,
+ul.select2-selection__rendered {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+[thotam-table] > tbody > tr > td {
+    vertical-align: middle !important;
+}
+
+[thotam-table] > tbody > tr > td .dropdown-item.waves-effect {
+    display: block !important;
+}
+
+[thotam-table] > thead > tr > th.sorting_asc,
+[thotam-table] > thead > tr > th.sorting_desc,
+[thotam-table] > thead > tr > th.sorting {
+    padding-right: 35px !important;
+}
+
+[thotam-table] > tbody > tr > td,
+[thotam-table] > thead > tr > th {
+    white-space: nowrap;
+}
+
+[thotam-datatables] > tbody > tr > td {
+    vertical-align: middle !important;
+}
+
+[thotam-datatables] > tbody > tr > td .dropdown-item.waves-effect {
+    display: block !important;
+}
+[thotam-datatables] > thead > tr > th.sorting_asc,
+[thotam-datatables] > thead > tr > th.sorting_desc,
+[thotam-datatables] > thead > tr > th.sorting {
+    padding-right: 35px !important;
+}
+
+[thotam-datatables] > tbody > tr > td,
+[thotam-datatables] > thead > tr > th {
+    white-space: nowrap;
+}
+
+.card-datatable.table-responsive {
+    overflow: visible;
+}
+
+.col-3.action-icon-w {
+    max-width: 100% !important;
+    min-width: 50px !important;
+}
+
+.col-3.action-max-w {
+    max-width: 100% !important;
+}
+
+.custom-file-label::after {
+    content: "Chọn tệp" !important;
+}
+
+.it .btn-orange {
+    background-color: blue;
+    border-color: #777 !important;
+    color: #777;
+    text-align: left;
+    width: 100%;
+}
+.it input.form-control {
+    border: none;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: none;
+}
+.it .form-control:focus {
+    border-color: #ff4d0d;
+    box-shadow: none;
+    outline: none;
+}
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+div#TT_blockUI_custom .progress {
+    display: -ms-flexbox;
+    display: flex;
+    height: 0.75rem;
+    overflow: hidden;
+    font-size: 0.625rem;
+    background-color: rgba(24, 28, 33, 0.03);
+    border-radius: 10rem;
+}
+
+div#TT_blockUI_custom .progress-bar-animated {
+    -webkit-animation: progress-bar-stripes-tt 1s linear infinite;
+    animation: progress-bar-stripes-tt 1s linear infinite;
+}
+
+div#TT_blockUI_custom .progress-bar-striped {
+    background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.15) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.15) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 0.75rem 0.75rem;
+}
+
+div#TT_blockUI_custom .progress-bar {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #6610f2;
+    transition: width 0.6s ease;
+}
+
+@-webkit-keyframes progress-bar-stripes-tt {
+    from {
+        background-position: 0.75rem 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+
+@keyframes progress-bar-stripes-tt {
+    from {
+        background-position: 0.75rem 0;
+    }
+    to {
+        background-position: 0 0;
+    }
+}
+
+.file-upload-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.blockUI.blockMsg.blockPage {
+    min-width: 240px !important;
+}
+
+.material-style
+    .select2-container--default
+    li.select2-results__option[aria-selected="true"] {
+    background-color: rgba(232, 76, 100, 0.4);
+}
+span.select2-selection__clear {
+    margin-right: 1rem;
+}
+
+.form-control.view-form-control:disabled {
+    border-bottom: 1px solid rgba(24, 28, 33, 0.1) !important;
+    color: #4e5155 !important;
+}
+
+.h-fit-content {
+    height: fit-content;
+}
+
+.h-max-content {
+    height: max-content;
+}
+
+.h-min-content {
+    height: min-content;
+}
+
+html:not([dir="rtl"]) .border-thotam {
+    border-color: rgba(24, 28, 33, 0.1) !important;
+}
+
+/*.form-label,
+.col-form-label {
+    font-size: inherit !important;
+}*/
+
+.text-transform-none {
+    text-transform: none !important;
+}
+
+div.dt-buttons {
+    width: 100%;
+}
+
+span.dropdown-item:hover {
+    cursor: pointer;
+}
+
+.cursor-auto
+    .select2-container--default.select2-container--disabled
+    .select2-selection--multiple {
+    cursor: auto;
+}
+
+.modal-slg {
+    max-width: 37.5rem;
+}
+
+.bootstrap-tagsinput {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+@media (min-width: 992px) {
+    .modal-slg,
+    .modal-sxl {
+        max-width: 43.5rem;
+    }
+}
