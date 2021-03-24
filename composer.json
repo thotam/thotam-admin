@@ -25,7 +25,8 @@
         "hisorange/browser-detect": "^4.3",
         "wildside/userstamps": "^2.1",
         "yajra/laravel-datatables": "1.5",
-        "masbug/flysystem-google-drive-ext": "dev-master"
+        "masbug/flysystem-google-drive-ext": "dev-master",
+        "queueworker/sansdaemon": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
