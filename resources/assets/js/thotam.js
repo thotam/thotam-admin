@@ -109,8 +109,13 @@ $(document).on("click", "[thotam-blockui]", function () {
 });
 
 //Ẩn toàn bộ modal
-window.addEventListener("hide_modal", function (e) {
+window.addEventListener("hide_modals", function (e) {
     $(".modal.fade").modal("hide");
+});
+
+//Ản modal cụ thể
+window.addEventListener("hide_modal", (event) => {
+    $(event.detail).modal("hide");
 });
 
 //Hiện modal cụ thể
