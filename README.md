@@ -45,6 +45,14 @@ npm install
 php artisan vendor:publish --tag=datatables-buttons
 ```
 
+## Active some Providers
+
+```php
+Remove comments of  "Yajra\DataTables\DataTablesServiceProvider::class" in "config\app.php"
+Remove comments of  "App\Providers\GoogleDriveServiceProvider::class" in "config\app.php"
+Remove comments of  "Queueworker\SansDaemon\SansDaemonServiceProvider" in "config\app.php"
+```
+
 ## Build Style and JS
 
 ```php
