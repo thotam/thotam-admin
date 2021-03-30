@@ -32,10 +32,6 @@ cd thotam
 ```
 
 ```php
-composer install
-```
-
-```php
 npm install
 ```
 
