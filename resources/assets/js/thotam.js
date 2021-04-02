@@ -136,3 +136,229 @@ window.addEventListener("toastr", (event) => {
         rtl: $("body").attr("dir") === "rtl" || $("html").attr("dir") === "rtl",
     });
 });
+
+window.addEventListener("livewire-upload-start", (event) => {
+    let fime_names = [];
+    Livewire.emit(
+        "Update_ThotamFileUploadStep",
+        $(event.target).attr("wire:model"),
+        1
+    );
+    for (let i = 0; i < $(event.target.files).length; i++) {
+        fime_names.push(event.target.files[i].name);
+    }
+
+    if (
+        $("div#TT_blockUI_custom").find(
+            "div.progress-bar." + $(event.target).attr("wire:model")
+        ).length == 0
+    ) {
+        $("div#TT_blockUI_custom").append(
+            '<div class="progress"><div class="progress-bar ' +
+                $(event.target).attr("wire:model") +
+                ' progress-bar-striped bg-info" style="width: 100%;"></div></div><div class="mx-3 mb-2 mt-1 text-left text-tiny file-upload-name">' +
+                fime_names.join("<br>") +
+                "</div>"
+        );
+    } else {
+        $("div#TT_blockUI_custom")
+            .find("div.progress-bar." + $(event.target).attr("wire:model"))
+            .removeClass(
+                "bg-info bg-warning bg-danger bg-success progress-bar-animated"
+            )
+            .addClass("bg-info")
+            .css("width", "100%");
+    }
+
+    if (
+        $("div#TT_blockUI_custom").find(
+            'input[type="hidden"][thotam-target="' +
+                $(event.target).attr("thotam-wire:model") +
+                '"]'
+        ).length == 0
+    ) {
+        $("div#TT_blockUI_custom").append(
+            '<input type="hidden" thotam-stage="uploading" thotam-target="' +
+                $(event.target).attr("thotam-wire:model") +
+                '">'
+        );
+    } else {
+        $("div#TT_blockUI_custom")
+            .find(
+                'input[type="hidden"][thotam-target="' +
+                    $(event.target).attr("thotam-wire:model") +
+                    '"]'
+            )
+            .attr("thotam-stage", "uploading");
+    }
+});
+
+window.addEventListener("livewire-upload-finish", (event) => {
+    let fime_names = [];
+    Livewire.emit(
+        "Update_ThotamFileUploadStep",
+        $(event.target).attr("wire:model"),
+        4
+    );
+    for (let i = 0; i < $(event.target.files).length; i++) {
+        fime_names.push(event.target.files[i].name);
+    }
+
+    if (
+        $("div#TT_blockUI_custom").find(
+            "div.progress-bar." + $(event.target).attr("wire:model")
+        ).length == 0
+    ) {
+        $("div#TT_blockUI_custom").append(
+            '<div class="progress"><div class="progress-bar ' +
+                $(event.target).attr("wire:model") +
+                ' progress-bar-striped bg-success" style="width: 100%;"></div></div><div class="mx-3 mb-2 mt-1 text-left text-tiny file-upload-name">' +
+                fime_names.join("<br>") +
+                "</div>"
+        );
+    } else {
+        $("div#TT_blockUI_custom")
+            .find("div.progress-bar." + $(event.target).attr("wire:model"))
+            .removeClass(
+                "bg-info bg-warning bg-danger bg-success progress-bar-animated"
+            )
+            .addClass("bg-success")
+            .css("width", "100%");
+    }
+
+    if (
+        $("div#TT_blockUI_custom").find(
+            'input[type="hidden"][thotam-target="' +
+                $(event.target).attr("thotam-wire:model") +
+                '"]'
+        ).length == 0
+    ) {
+        $("div#TT_blockUI_custom").append(
+            '<input type="hidden" thotam-stage="done" thotam-target="' +
+                $(event.target).attr("thotam-wire:model") +
+                '">'
+        );
+    } else {
+        $("div#TT_blockUI_custom")
+            .find(
+                'input[type="hidden"][thotam-target="' +
+                    $(event.target).attr("thotam-wire:model") +
+                    '"]'
+            )
+            .attr("thotam-stage", "done");
+    }
+});
+
+window.addEventListener("livewire-upload-error", (event) => {
+    let fime_names = [];
+    Livewire.emit(
+        "Update_ThotamFileUploadStep",
+        $(event.target).attr("wire:model"),
+        3
+    );
+    for (let i = 0; i < $(event.target.files).length; i++) {
+        fime_names.push(event.target.files[i].name);
+    }
+
+    if (
+        $("div#TT_blockUI_custom").find(
+            "div.progress-bar." + $(event.target).attr("wire:model")
+        ).length == 0
+    ) {
+        $("div#TT_blockUI_custom").append(
+            '<div class="progress"><div class="progress-bar ' +
+                $(event.target).attr("wire:model") +
+                ' progress-bar-striped bg-danger" style="width: 100%;"></div></div><div class="mx-3 mb-2 mt-1 text-left text-tiny file-upload-name">' +
+                fime_names.join("<br>") +
+                "</div>"
+        );
+    } else {
+        $("div#TT_blockUI_custom")
+            .find("div.progress-bar." + $(event.target).attr("wire:model"))
+            .removeClass(
+                "bg-info bg-warning bg-danger bg-success progress-bar-animated"
+            )
+            .addClass("bg-danger")
+            .css("width", "100%");
+    }
+
+    if (
+        $("div#TT_blockUI_custom").find(
+            'input[type="hidden"][thotam-target="' +
+                $(event.target).attr("thotam-wire:model") +
+                '"]'
+        ).length == 0
+    ) {
+        $("div#TT_blockUI_custom").append(
+            '<input type="hidden" thotam-stage="fail" thotam-target="' +
+                $(event.target).attr("thotam-wire:model") +
+                '">'
+        );
+    } else {
+        $("div#TT_blockUI_custom")
+            .find(
+                'input[type="hidden"][thotam-target="' +
+                    $(event.target).attr("thotam-wire:model") +
+                    '"]'
+            )
+            .attr("thotam-stage", "fail");
+    }
+});
+
+window.addEventListener("livewire-upload-progress", (event) => {
+    let fime_names = [];
+    for (let i = 0; i < $(event.target.files).length; i++) {
+        fime_names.push(event.target.files[i].name);
+    }
+
+    if (
+        $("div#TT_blockUI_custom").find(
+            "div.progress-bar." + $(event.target).attr("wire:model")
+        ).length == 0
+    ) {
+        $("div#TT_blockUI_custom").append(
+            '<div class="progress"><div class="progress-bar ' +
+                $(event.target).attr("wire:model") +
+                ' progress-bar-striped bg-warning" style="width: 100%;"></div></div><div class="mx-3 mb-2 mt-1 text-left text-tiny file-upload-name">' +
+                fime_names.join("<br>") +
+                "</div>"
+        );
+    } else {
+        $("div#TT_blockUI_custom")
+            .find("div.progress-bar." + $(event.target).attr("wire:model"))
+            .removeClass("bg-info bg-warning bg-danger bg-success")
+            .addClass("bg-warning progress-bar-animated")
+            .css("width", event.detail.progress + "%");
+    }
+
+    if (
+        $("div#TT_blockUI_custom").find(
+            'input[type="hidden"][thotam-target="' +
+                $(event.target).attr("thotam-wire:model") +
+                '"]'
+        ).length == 0
+    ) {
+        $("div#TT_blockUI_custom").append(
+            '<input type="hidden" thotam-stage="uploading" thotam-target="' +
+                $(event.target).attr("thotam-wire:model") +
+                '">'
+        );
+    } else {
+        $("div#TT_blockUI_custom")
+            .find(
+                'input[type="hidden"][thotam-target="' +
+                    $(event.target).attr("thotam-wire:model") +
+                    '"]'
+            )
+            .attr("thotam-stage", "uploading");
+    }
+});
+
+//Xử lý khi dữ liệu đã được load xong
+document.addEventListener("DOMContentLoaded", () => {
+    Livewire.hook("message.failed", (message, component) => {
+        $.unblockUI();
+    });
+
+    Livewire.hook("message.processed", (message, component) => {});
+});
