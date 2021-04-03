@@ -123,6 +123,11 @@ window.addEventListener("show_modal", (event) => {
     $(event.detail).modal("show");
 });
 
+//$.blockUI();
+window.addEventListener("blockUI", function (e) {
+    ThoTam_BlockUI();
+});
+
 //$.unblockUI();
 window.addEventListener("unblockUI", function (e) {
     $.unblockUI();
