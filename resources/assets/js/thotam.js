@@ -144,7 +144,7 @@ window.addEventListener("toastr", (event) => {
 
 //Gọi livewire method
 $(document).on("click", "[thotam-livewire-method]", function () {
-    CPC1HN_BlockUI();
+    ThoTam_BlockUI();
     Livewire.emit(
         $(this).attr("thotam-livewire-method]"),
         $(this).attr("thotam-model-id")
