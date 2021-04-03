@@ -123,6 +123,11 @@ window.addEventListener("show_modal", (event) => {
     $(event.detail).modal("show");
 });
 
+//$.unblockUI();
+window.addEventListener("unblockUI", function (e) {
+    $.unblockUI();
+});
+
 //Toastr thông báo
 window.addEventListener("toastr", (event) => {
     toastr[event.detail.type](event.detail.message, event.detail.title, {
