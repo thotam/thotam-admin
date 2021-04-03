@@ -45,6 +45,8 @@
 
     <!-- `perfect-scrollbar` library required by SideNav plugin -->
     <link rel="stylesheet" href="{{ mix('/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ mix('/vendor/libs/spinkit/spinkit.css') }}">
+    <link rel="stylesheet" href="{{ mix('/vendor/libs/toastr/toastr.css') }}">
 
     @yield('styles')
     @stack('styles')
