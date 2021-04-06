@@ -379,5 +379,123 @@ document.addEventListener("DOMContentLoaded", () => {
         $.unblockUI();
     });
 
-    Livewire.hook("message.processed", (message, component) => {});
+    Livewire.hook("message.processed", (message, component) => {
+        if ($("select.thotam-select2").length != 0) {
+            $("select.thotam-select2").each(function (e) {
+                $(this)
+                    .wrap('<div class="position-relative"></div>')
+                    .select2({
+                        placeholder: $(this).attr("thotam-placeholder"),
+                        minimumResultsForSearch: $(this).attr("thotam-search"),
+                        dropdownParent: $("#" + $(this).attr("id") + "_div"),
+                    });
+            });
+        }
+
+        if ($("select.thotam-select2-multi").length != 0) {
+            $("select.thotam-select2-multi").each(function (e) {
+                $(this)
+                    .wrap('<div class="position-relative"></div>')
+                    .select2({
+                        placeholder: $(this).attr("thotam-placeholder"),
+                        minimumResultsForSearch: $(this).attr("thotam-search"),
+                        dropdownParent: $("#" + $(this).attr("id") + "_div"),
+                    });
+            });
+        }
+
+        if ($("input.thotam-datepicker").length != 0) {
+            $("input.thotam-datepicker").each(function (e) {
+                $(this).datepicker("update");
+            });
+        }
+
+        if ($("input.thotam-datetimepicker").length != 0) {
+            $("input.thotam-datetimepicker").each(function (e) {
+                $(this).datetimepicker("update");
+            });
+        }
+    });
+});
+
+//dynamic_update
+window.addEventListener("dynamic_update", function (e) {
+    if (!!window.thotam_livewire) {
+        if ($("select.thotam-select2").length != 0) {
+            $("select.thotam-select2").each(function (e) {
+                $(this).on("change", function (e) {
+                    window.thotam_livewire.set(
+                        $(this).attr("wire:model"),
+                        $(this).val()
+                    );
+                });
+            });
+        }
+
+        if ($("select.thotam-select2-multi").length != 0) {
+            $("select.thotam-select2-multi").each(function (e) {
+                $(this).on("select2:close", function (e) {
+                    window.thotam_livewire.set(
+                        $(this).attr("wire:model"),
+                        $(this).val()
+                    );
+                });
+            });
+        }
+
+        if ($("input.thotam-datepicker").length != 0) {
+            $("input.thotam-datepicker").each(function (e) {
+                $(this)
+                    .datepicker({
+                        language: "vi",
+                        autoclose: true,
+                        toggleActive: true,
+                        todayHighlight: true,
+                        todayBtn: "linked",
+                        clearBtn: true,
+                        maxViewMode: 3,
+                        minViewMode: 0,
+                        startView: !!$(this).attr("thotam-startview")
+                            ? $(this).attr("thotam-startview")
+                            : 1,
+                        weekStart: 1,
+                        format: "dd-mm-yyyy",
+                        container: !!$(this).attr("thotam-container")
+                            ? $(this).attr("thotam-container")
+                            : null,
+                        orientation: isRtl ? "auto right" : "auto left",
+                    })
+                    .on("hide", function (e) {
+                        window.thotam_livewire.set(
+                            $(this).attr("wire:model"),
+                            $(this).val()
+                        );
+                    });
+            });
+        }
+
+        if ($("input.thotam-datetimepicker").length != 0) {
+            $("input.thotam-datetimepicker").each(function (e) {
+                $(this)
+                    .datetimepicker({
+                        format: "dd-mm-yyyy hh:ii",
+                        autoclose: true,
+                        todayBtn: true,
+                        minuteStep: 15,
+                        todayHighlight: true,
+                        bootcssVer: 4,
+                        zIndex: 3050,
+                        language: "vi",
+                        pickerPosition: "top-left",
+                        weekStart: 1,
+                    })
+                    .on("hide", function (e) {
+                        window.thotam_livewire.set(
+                            $(this).attr("wire:model"),
+                            $(this).val()
+                        );
+                    });
+            });
+        }
+    }
 });
