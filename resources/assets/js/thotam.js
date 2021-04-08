@@ -463,8 +463,8 @@ window.addEventListener("dynamic_update", function (e) {
                         weekStart: 1,
                         format: "dd-mm-yyyy",
                         container: !!$(this).attr("thotam-container")
-                            ? $(this).attr("thotam-container")
-                            : null,
+                            ? "#" + $(this).attr("thotam-container")
+                            : "body",
                         orientation: isRtl ? "auto right" : "auto left",
                     })
                     .on("hide", function (e) {
