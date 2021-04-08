@@ -22,6 +22,7 @@ class User extends Authenticatable
         'phone',
         'active',
         'password',
+        'hr_key',
     ];
 
     /**
