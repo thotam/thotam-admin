@@ -387,6 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     .select2({
                         placeholder: $(this).attr("thotam-placeholder"),
                         minimumResultsForSearch: $(this).attr("thotam-search"),
+                        allowClear: !!$(this).attr("thotam-allow-clear"),
                         dropdownParent: $("#" + $(this).attr("id") + "_div"),
                     });
             });
@@ -399,6 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     .select2({
                         placeholder: $(this).attr("thotam-placeholder"),
                         minimumResultsForSearch: $(this).attr("thotam-search"),
+                        allowClear: !!$(this).attr("thotam-allow-clear"),
                         dropdownParent: $("#" + $(this).attr("id") + "_div"),
                     });
             });
