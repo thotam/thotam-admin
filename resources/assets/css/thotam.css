@@ -302,9 +302,21 @@ pre.thotam-pre {
     font-family: inherit;
 }
 span.select2-selection__rendered,
+span.select2-selection.select2-selection--multiple,
 ul.select2-selection__rendered {
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
+}
+
+span.select2-selection.select2-selection--multiple
+    > ul.select2-selection__rendered {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+textarea.select2-search__field {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 [thotam-table] > tbody > tr > td {
@@ -535,8 +547,4 @@ span.dropdown-item:hover {
     .modal-sxl {
         max-width: 43.5rem;
     }
-}
-
-ul.select2-selection__rendered {
-    display: none !important;
 }
