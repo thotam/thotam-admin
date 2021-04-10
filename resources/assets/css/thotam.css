@@ -538,5 +538,5 @@ span.dropdown-item:hover {
 }
 
 ul.select2-selection__rendered {
-    display: none;
+    display: none !important;
 }
