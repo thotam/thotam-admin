@@ -536,3 +536,7 @@ span.dropdown-item:hover {
         max-width: 43.5rem;
     }
 }
+
+ul.select2-selection__rendered {
+    display: none;
+}
