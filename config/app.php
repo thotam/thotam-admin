@@ -178,6 +178,7 @@ return [
         //Yajra\DataTables\DataTablesServiceProvider::class,
         //App\Providers\GoogleDriveServiceProvider::class,
         //Queueworker\SansDaemon\SansDaemonServiceProvider::class,
+        //App\Providers\FortifyServiceProvider::class
     ],
 
     /*
