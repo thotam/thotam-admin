@@ -54,6 +54,12 @@ Remove comments of "Queueworker\SansDaemon\SansDaemonServiceProvider" in "config
 npm run dev
 ```
 
+## Migration queue table
+
+```php
+php artisan queue:table
+```
+
 ## Run Server
 
 ```php
