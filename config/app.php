@@ -176,9 +176,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         //Yajra\DataTables\DataTablesServiceProvider::class,
-        //App\Providers\GoogleDriveServiceProvider::class,
         //Queueworker\SansDaemon\SansDaemonServiceProvider::class,
         //App\Providers\FortifyServiceProvider::class
+        //Thotam\ThotamFileLibrary\Providers\ThotamGoogleDriveServiceProvider::class,
     ],
 
     /*
