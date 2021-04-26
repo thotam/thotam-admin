@@ -60,6 +60,19 @@ npm run dev
 php artisan queue:table
 ```
 
+## Update Mailer in .env
+
+```php
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
 ## Run Server
 
 ```php
