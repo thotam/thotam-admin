@@ -338,6 +338,12 @@ textarea.select2-search__field {
     white-space: nowrap;
 }
 
+[thotam-table] > tbody > tr > td > button > span,
+[thotam-table] > thead > tr > th > button > span {
+    font-size: 0.894rem !important;
+    text-transform: none !important;
+}
+
 [thotam-datatables] > tbody > tr > td {
     vertical-align: middle !important;
 }
@@ -354,6 +360,12 @@ textarea.select2-search__field {
 [thotam-datatables] > tbody > tr > td,
 [thotam-datatables] > thead > tr > th {
     white-space: nowrap;
+}
+
+[thotam-datatables] > tbody > tr > td > button > span,
+[thotam-datatables] > thead > tr > th > button > span {
+    font-size: 0.894rem !important;
+    text-transform: none !important;
 }
 
 .card-datatable.table-responsive {
@@ -547,4 +559,12 @@ span.dropdown-item:hover {
     .modal-sxl {
         max-width: 43.5rem;
     }
+}
+
+.custom-switch .thotam-control-label::before {
+    left: -0.625rem !important;
+}
+
+.form-control.custom-select.rounded {
+    text-align-last: center;
 }
