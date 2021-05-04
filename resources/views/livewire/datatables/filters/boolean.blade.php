@@ -1,5 +1,5 @@
 <div x-data class="input-group input-group-sm mb-2">
-    <select x-ref="boolean" name="{{ $name }}" class="custom-select rounded-pill" wire:input="doBooleanFilter('{{ $index }}', $event.target.value)" x-on:input="$refs.boolean.value=''">
+    <select x-ref="boolean" name="{{ $name }}" class="custom-select rounded" wire:input="doBooleanFilter('{{ $index }}', $event.target.value)" x-on:input="$refs.boolean.value=''">
         <option value=""></option>
         <option value="0">{{ __('LivewireDatatableBs4::datatable.no') }}</option>
         <option value="1">{{ __('LivewireDatatableBs4::datatable.yes') }}</option>

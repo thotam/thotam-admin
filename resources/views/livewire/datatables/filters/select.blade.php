@@ -1,5 +1,5 @@
 <div x-data class="input-group input-group-sm mb-2">
-    <select x-ref="select" wire:input="doSelectFilter('{{ $index }}', $event.target.value)" x-on:input="$refs.select.value=''" name="{{ $name }}" class="custom-select rounded-pill">
+    <select x-ref="select" wire:input="doSelectFilter('{{ $index }}', $event.target.value)" x-on:input="$refs.select.value=''" name="{{ $name }}" class="custom-select rounded">
         <option value="">{{ __('LivewireDatatableBs4::datatable.choose') }}</option>
         @foreach($options as $value => $label)
             @if(is_object($label))

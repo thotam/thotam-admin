@@ -1,5 +1,5 @@
 <div x-data class="input-group input-group-sm mb-2">
-    <input x-ref="inputSearch" type="text" class="rounded-pill form-control"
+    <input x-ref="inputSearch" type="text" class="px-2 rounded form-control"
         wire:change="doTextFilter('{{ $index }}', $event.target.value)"
         x-on:change="$refs.inputSearch.value = ''"
         placeholder="{{ __('LivewireDatatableBs4::datatable.type_find') }}" />

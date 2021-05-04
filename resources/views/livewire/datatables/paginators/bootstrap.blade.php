@@ -1,4 +1,4 @@
-<nav class="rounded-pill" aria-label="pagination-boostrap">
+<nav class="rounded" aria-label="pagination-boostrap">
     <ul class="pagination pagination-sm justify-content-center">
 
         <!-- Previous Page Link -->

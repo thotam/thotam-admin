@@ -94,11 +94,11 @@
                                 @if ($column['filterable'] && !$column['hidden'])
                                     <th>
                                         @if(is_iterable($column['filterable']))
-                                            <div wire:key="{{ $index }}">
+                                            <div wire:key="{{ $index }}" class="py-1">
                                                 @include('datatables::filters.select', ['index' => $index, 'name' => $column['label'], 'options' => $column['filterable']])
                                             </div>
                                         @else
-                                            <div wire:key="{{ $index }}">
+                                            <div wire:key="{{ $index }}" class="py-1">
                                                 @include('datatables::filters.' . ($column['filterView'] ?? $column['type']), ['index' => $index, 'name' => $column['label']])
                                             </div>
                                         @endif
@@ -179,7 +179,7 @@
                 <div class="col-md-3">
                     @include('datatables::paginators.per-page')
                 </div>
-                <div class="col-md-6" style="z-index: 99999">
+                <div class="col-md-6">
                     {{ $this->results->links('datatables::paginators.bootstrap') }}
                 </div>
                 <div class="col-md-3 d-flex justify-content-end">
