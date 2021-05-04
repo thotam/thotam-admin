@@ -93,15 +93,6 @@
 
                                 @if ($column['filterable'] && !$column['hidden'])
                                     <th>
-                                        @if(is_iterable($column['filterable']))
-                                            <div wire:key="{{ $index }}" class="py-1">
-                                                @include('datatables::filters.select', ['index' => $index, 'name' => $column['label'], 'options' => $column['filterable']])
-                                            </div>
-                                        @else
-                                            <div wire:key="{{ $index }}" class="py-1">
-                                                @include('datatables::filters.' . ($column['filterView'] ?? $column['type']), ['index' => $index, 'name' => $column['label']])
-                                            </div>
-                                        @endif
                                         @if($column['type'] !== 'checkbox')
                                             @switch($hideable)
                                                 @case('inline')
@@ -137,6 +128,24 @@
                                         @endswitch
                                     @endif
                                 @endif
+                            @endforeach
+                        </tr>
+
+                        <tr>
+                            @foreach($this->columns as $index => $column)
+                                <th>
+                                    @if ($column['filterable'] && !$column['hidden'])
+                                        @if(is_iterable($column['filterable']))
+                                            <div wire:key="{{ $index }}">
+                                                @include('datatables::filters.select', ['index' => $index, 'name' => $column['label'], 'options' => $column['filterable']])
+                                            </div>
+                                        @else
+                                            <div wire:key="{{ $index }}">
+                                                @include('datatables::filters.' . ($column['filterView'] ?? $column['type']), ['index' => $index, 'name' => $column['label']])
+                                            </div>
+                                        @endif
+                                    @endif
+                                </th>
                             @endforeach
                         </tr>
                     </thead>
