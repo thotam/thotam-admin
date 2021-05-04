@@ -48,6 +48,24 @@ Remove comments of "Yajra\DataTables\DataTablesServiceProvider::class" in "confi
 Remove comments of "Queueworker\SansDaemon\SansDaemonServiceProvider" in "config\app.php"
 ```
 
+## Add sortable to Livewire Datatables - edit Mediconesystems\LivewireDatatables\Column:Class;
+
+```php
+add public $sortable = false;
+and
+    public function sortable()
+    {
+        $this->sortable = true;
+
+        return $this;
+    }
+```
+
+```php
+Remove comments of "Yajra\DataTables\DataTablesServiceProvider::class" in "config\app.php"
+Remove comments of "Queueworker\SansDaemon\SansDaemonServiceProvider" in "config\app.php"
+```
+
 ## Build Style and JS
 
 ```php
