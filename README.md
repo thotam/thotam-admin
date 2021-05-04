@@ -61,6 +61,17 @@ and
     }
 ```
 
+## Edit addDateRangeFilter in Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable:Class;
+
+```php
+    $query->whereDate($this->getColumnField($index)[0], ">=",
+        isset($filter['start']) && $filter['start'] != '' ? $filter['start'] : '0000-00-00',
+    );
+    $query->whereDate($this->getColumnField($index)[0], "<=",
+        isset($filter['end']) && $filter['end'] != '' ? $filter['end'] : now()->format('Y-m-d'),
+    );
+```
+
 ```php
 Remove comments of "Yajra\DataTables\DataTablesServiceProvider::class" in "config\app.php"
 Remove comments of "Queueworker\SansDaemon\SansDaemonServiceProvider" in "config\app.php"
