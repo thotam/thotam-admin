@@ -334,11 +334,12 @@ textarea.select2-search__field {
 }
 
 [thotam-table] > tbody > tr > td,
-[thotam-table] > thead > tr > th {
+[thotam-table] > thead > tr > th > button {
     white-space: nowrap;
 }
 
 [thotam-table] > tbody > tr > td > button > span,
+[thotam-table] > tbody > tr > td > span,
 [thotam-table] > thead > tr > th > button > span {
     font-size: 0.894rem !important;
     text-transform: none !important;
@@ -358,11 +359,12 @@ textarea.select2-search__field {
 }
 
 [thotam-datatables] > tbody > tr > td,
-[thotam-datatables] > thead > tr > th {
+[thotam-datatables] > thead > tr > th > button {
     white-space: nowrap;
 }
 
 [thotam-datatables] > tbody > tr > td > button > span,
+[thotam-table] > tbody > tr > td > span,
 [thotam-datatables] > thead > tr > th > button > span {
     font-size: 0.894rem !important;
     text-transform: none !important;
@@ -567,4 +569,7 @@ span.dropdown-item:hover {
 
 .form-control.custom-select.rounded {
     text-align-last: center;
+}
+.mw-160 {
+    min-width: 160px;
 }
