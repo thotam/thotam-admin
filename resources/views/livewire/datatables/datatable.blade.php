@@ -77,7 +77,7 @@
         <div class="table-responsive mb-3 mx-0 p-0">
             <table class="table table-striped table-bordered dataTable no-footer m-0" thotam-datatables>
                 @unless($this->hideHeader)
-                    <thead class="thead-light">
+                    <thead>
                         <tr>
                             @foreach($this->columns as $index => $column)
                                 @if($column['type'] === 'checkbox')
