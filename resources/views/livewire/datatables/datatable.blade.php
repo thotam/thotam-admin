@@ -79,6 +79,9 @@
                 @unless($this->hideHeader)
                     <thead>
                         <tr>
+                            @php
+                                $tt_check = false;
+                            @endphp
                             @foreach($this->columns as $index => $column)
                                 @if($column['type'] === 'checkbox')
                                     <th>
@@ -92,6 +95,9 @@
                                 @endif
 
                                 @if ($column['filterable'] && !$column['hidden'])
+                                    @php
+                                        $tt_check = true;
+                                    @endphp
                                     <th>
                                         @if($column['type'] !== 'checkbox')
                                             @switch($hideable)
@@ -131,23 +137,26 @@
                             @endforeach
                         </tr>
 
-                        <tr>
-                            @foreach($this->columns as $index => $column)
-                                <th>
-                                    @if ($column['filterable'] && !$column['hidden'])
-                                        @if(is_iterable($column['filterable']))
-                                            <div wire:key="{{ $index }}">
-                                                @include('datatables::filters.select', ['index' => $index, 'name' => $column['label'], 'options' => $column['filterable']])
-                                            </div>
-                                        @else
-                                            <div wire:key="{{ $index }}">
-                                                @include('datatables::filters.' . ($column['filterView'] ?? $column['type']), ['index' => $index, 'name' => $column['label']])
-                                            </div>
+                        @if ($tt_check )
+                            <tr>
+                                @foreach($this->columns as $index => $column)
+                                    <th>
+                                        @if ($column['filterable'] && !$column['hidden'])
+                                            @if(is_iterable($column['filterable']))
+                                                <div wire:key="{{ $index }}">
+                                                    @include('datatables::filters.select', ['index' => $index, 'name' => $column['label'], 'options' => $column['filterable']])
+                                                </div>
+                                            @else
+                                                <div wire:key="{{ $index }}">
+                                                    @include('datatables::filters.' . ($column['filterView'] ?? $column['type']), ['index' => $index, 'name' => $column['label']])
+                                                </div>
+                                            @endif
                                         @endif
-                                    @endif
-                                </th>
-                            @endforeach
-                        </tr>
+                                    </th>
+                                @endforeach
+                            </tr>
+                        @endif
+
                     </thead>
                 @endif
                     <tbody>
