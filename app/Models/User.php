@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
+use Wildside\Userstamps\Userstamps;
+use Thotam\ThotamHr\Traits\HasHrTrait;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Thotam\ThotamHr\Traits\HasHrTrait;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
     use HasHrTrait;
+    use SoftDeletes;
+    use Userstamps;
 
     /**
      * The attributes that are mass assignable.
@@ -25,6 +29,7 @@ class User extends Authenticatable
         'active',
         'password',
         'hr_key',
+        'info_mnv',
     ];
 
     /**
