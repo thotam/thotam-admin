@@ -29,7 +29,6 @@ class User extends Authenticatable
         'active',
         'password',
         'hr_key',
-        'info_mnv',
     ];
 
     /**
