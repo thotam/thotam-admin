@@ -27,6 +27,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
 
         $schedule->command('thotam-auth:hr-key-sync')->everyFifteenMinutes();
+        $schedule->command('thotam-hr:hr-sync')->everyFifteenMinutes();
 
         $schedule->command('queue:restart')->hourly();
         $schedule->command('queue:retry all')->everyFifteenMinutes();
