@@ -18,7 +18,12 @@ class HttpsProtocolMiddleware
     {
         if (env('APP_ENV') === 'production') {
             if (!$request->secure()) {
-                return redirect()->secure($request->getRequestUri());
+                if (!!$request->input('urlback')) {
+                    $urlback = str_replace('https', 'http', $request->input('urlback'));
+                    return redirect()->secure(str_replace('http', 'https', $urlback));
+                } else {
+                    return redirect()->secure($request->getRequestUri());
+                }
             }
         }
 
