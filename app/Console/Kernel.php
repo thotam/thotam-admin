@@ -25,6 +25,12 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+
+        $schedule->command('thotam-auth:hr-key-sync')->everyFifteenMinutes();
+
+        $schedule->command('queue:restart')->hourly();
+        $schedule->command('queue:retry all')->everyFifteenMinutes();
+        $schedule->command('queue:work --sansdaemon --sleep 3 --tries=5')->everyMinute()->withoutOverlapping(15);
     }
 
     /**
