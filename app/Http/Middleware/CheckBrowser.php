@@ -21,7 +21,7 @@ class CheckBrowser
             if (Browser::isChrome() || Browser::isSafari() || (Browser::browserFamily()=="Coc Coc")) {
                 return $next($request);
             } else {
-                return response()->view('errors.noitice',[
+                return response()->view('errors.dynamic',[
                     'title' => 'Trình duyệt không được hỗ trợ',
                     'error_code' => ':v',
                     'error_description' => 'Không hỗ trợ trình duyệt này',
