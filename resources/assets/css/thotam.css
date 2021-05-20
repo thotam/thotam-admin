@@ -345,6 +345,16 @@ textarea.select2-search__field {
     text-transform: none !important;
 }
 
+[thotam-table] > tbody > tr > td,
+[thotam-table] > thead > tr > th {
+    width: 5px;
+}
+
+[thotam-table] > tbody > tr > td:last-child,
+[thotam-table] > thead > tr > th:last-child {
+    width: auto;
+}
+
 [thotam-datatables] > tbody > tr > td {
     vertical-align: middle !important;
 }
@@ -368,6 +378,16 @@ textarea.select2-search__field {
 [thotam-datatables] > thead > tr > th > button > span {
     font-size: 0.894rem !important;
     text-transform: none !important;
+}
+
+[thotam-datatables] > tbody > tr > td,
+[thotam-datatables] > thead > tr > th {
+    width: 5px;
+}
+
+[thotam-datatables] > tbody > tr > td:last-child,
+[thotam-datatables] > thead > tr > th:last-child {
+    width: auto;
 }
 
 .card-datatable.table-responsive {
@@ -572,4 +592,29 @@ span.dropdown-item:hover {
 }
 .mw-160 {
     min-width: 160px;
+}
+
+.badge-mentor {
+    background-color: #61bbb9;
+    color: #fff;
+}
+
+.badge-s {
+    background-color: #ffdc5d;
+    color: #fff;
+}
+
+.badge-mn {
+    background-color: #9ad3b7;
+    color: #fff;
+}
+
+.badge-mc {
+    background-color: #efa968;
+    color: #fff;
+}
+
+.badge-o {
+    background-color: #f9bec0;
+    color: #fff;
 }
