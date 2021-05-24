@@ -326,7 +326,6 @@ textarea.select2-search__field {
 [thotam-table] > tbody > tr > td .dropdown-item.waves-effect {
     display: block !important;
 }
-
 [thotam-table] > thead > tr > th.sorting_asc,
 [thotam-table] > thead > tr > th.sorting_desc,
 [thotam-table] > thead > tr > th.sorting {
@@ -334,13 +333,12 @@ textarea.select2-search__field {
 }
 
 [thotam-table] > tbody > tr > td,
-[thotam-table] > thead > tr > th > button {
+[thotam-table] > thead:first-child > tr > th {
     white-space: nowrap;
 }
 
-[thotam-table] > tbody > tr > td > button > span,
-[thotam-table] > tbody > tr > td > span,
-[thotam-table] > thead > tr > th > button > span {
+[thotam-table] > tbody > tr > td,
+[thotam-table] > thead > tr > th {
     font-size: 0.894rem !important;
     text-transform: none !important;
 }
@@ -353,6 +351,16 @@ textarea.select2-search__field {
 [thotam-table] > tbody > tr > td:last-child,
 [thotam-table] > thead > tr > th:last-child {
     width: auto;
+}
+
+[thotam-table] > thead:nth-child(2) > tr > th:first-child,
+[thotam-table] > thead:nth-child(2) > tr > td:first-child {
+    padding-left: 1.5rem !important;
+}
+
+[thotam-table] > thead:nth-child(2) > tr > th,
+[thotam-table] > thead:nth-child(2) > tr > td {
+    padding: 0.625rem !important;
 }
 
 [thotam-datatables] > tbody > tr > td {
@@ -369,13 +377,12 @@ textarea.select2-search__field {
 }
 
 [thotam-datatables] > tbody > tr > td,
-[thotam-datatables] > thead > tr > th > button {
+[thotam-datatables] > thead:first-child > tr > th {
     white-space: nowrap;
 }
 
-[thotam-datatables] > tbody > tr > td > button > span,
-[thotam-table] > tbody > tr > td > span,
-[thotam-datatables] > thead > tr > th > button > span {
+[thotam-datatables] > tbody > tr > td,
+[thotam-datatables] > thead > tr > th {
     font-size: 0.894rem !important;
     text-transform: none !important;
 }
@@ -388,6 +395,16 @@ textarea.select2-search__field {
 [thotam-datatables] > tbody > tr > td:last-child,
 [thotam-datatables] > thead > tr > th:last-child {
     width: auto;
+}
+
+[thotam-datatables] > thead:nth-child(2) > tr > th:first-child,
+[thotam-datatables] > thead:nth-child(2) > tr > td:first-child {
+    padding-left: 1.5rem !important;
+}
+
+[thotam-datatables] > thead:nth-child(2) > tr > th,
+[thotam-datatables] > thead:nth-child(2) > tr > td {
+    padding: 0.625rem !important;
 }
 
 .card-datatable.table-responsive {
