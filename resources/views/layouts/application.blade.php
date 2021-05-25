@@ -85,7 +85,5 @@
     <script src="{{ mix('/js/application.js') }}"></script>
     @stack('datatables')
     @stack('livewires')
-
-    <div id="thotam-datatables-select2-dropdown"></div>
 </body>
 </html>

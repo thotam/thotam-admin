@@ -501,3 +501,53 @@ window.addEventListener("dynamic_update", function (e) {
         }
     }
 });
+
+if ($("select.colum_filter_id_single").length != 0) {
+    $("select.colum_filter_id_single").each(function (e) {
+        $(this)
+            .wrap('<div class="position-relative dt-select2"></div>')
+            .select2({
+                placeholder: $(this).attr("placeholder"),
+                minimumResultsForSearch: 6,
+                allowClear: false,
+                dropdownParent: $("div.card-datatable.table-responsive"),
+            });
+    });
+}
+
+if ($("select.colum_filter_id_multi").length != 0) {
+    $("select.colum_filter_id_multi").each(function (e) {
+        $(this)
+            .wrap('<div class="position-relative dt-select2"></div>')
+            .select2({
+                placeholder: $(this).attr("placeholder"),
+                minimumResultsForSearch: 6,
+                allowClear: false,
+                dropdownParent: $("div.card-datatable.table-responsive"),
+            });
+    });
+}
+
+$("[thotam_dt_colum_filter]").on("change", function () {
+    dt_draw_event_function();
+});
+
+$("[thotam_dt_clear_button]").on("click", function () {
+    $($(this).attr("thotam_dt_clear_button")).val(null);
+    dt_draw_event_function();
+});
+
+function dt_draw_event_function() {
+    var dt_draw_event; // The custom event that will be created
+    if (document.createEvent) {
+        dt_draw_event = document.createEvent("HTMLEvents");
+        dt_draw_event.initEvent("dt_draw", true, true);
+        dt_draw_event.eventName = "dt_draw";
+        window.dispatchEvent(dt_draw_event);
+    } else {
+        dt_draw_event = document.createEventObject();
+        dt_draw_event.eventName = "dt_draw";
+        dt_draw_event.eventType = "dt_draw";
+        window.fireEvent("on" + dt_draw_event.eventType, dt_draw_event);
+    }
+}
