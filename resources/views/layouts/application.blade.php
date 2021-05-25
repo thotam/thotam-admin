@@ -6,6 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ isset($title) ? $title.' - ' : '' }}CPC1 Hà Nội - Tiên phong công nghệ dược phẩm</title>
 
@@ -55,7 +56,6 @@
 
     <!-- Application stylesheets -->
     <link rel="stylesheet" href="{{ mix('/css/application.css') }}">
-
 </head>
 <body @yield('bodyclass')>
 
@@ -66,6 +66,7 @@
 
     <!-- Core scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
     <script src="{{ mix('/vendor/libs/popper/popper.js') }}"></script>
     <script src="{{ mix('/vendor/js/bootstrap.js') }}"></script>
     <script src="{{ mix('/vendor/js/sidenav.js') }}"></script>
@@ -85,5 +86,6 @@
     @stack('datatables')
     @stack('livewires')
 
+    <div id="thotam-datatables-select2-dropdown"></div>
 </body>
 </html>
