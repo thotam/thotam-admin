@@ -87,43 +87,45 @@
             </ul>
         </li>
 
-        <!-- TT-MKT -->
-        <li class="sidenav-item{{ strpos($routeName, 'mkt.') === 0 ? ' active open' : '' }}">
-            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-bullseye d-block"></i><div>TT-MKT</div></a>
+        @if (optional(optional(Auth::user())->hr)->is_mkt_thanhvien || optional(optional(Auth::user())->hr)->is_mkt_quanly)
+            <!-- TT-MKT -->
+            <li class="sidenav-item{{ strpos($routeName, 'mkt.') === 0 ? ' active open' : '' }}">
+                <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-bullseye d-block"></i><div>TT-MKT</div></a>
 
-            <ul class="sidenav-menu">
+                <ul class="sidenav-menu">
 
-                <li class="sidenav-item{{ $routeName == 'mkt.nhom' ? ' active' : '' }}">
-                    <a href="{{ route('mkt.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
-                </li>
+                    <li class="sidenav-item{{ $routeName == 'mkt.nhom' ? ' active' : '' }}">
+                        <a href="{{ route('mkt.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                    </li>
 
-                <li class="sidenav-item{{ strpos($routeName, 'mkt.congviec.') === 0 ? ' active open' : '' }}">
-                    <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-cogs d-block"></i><div>Công việc</div></a>
+                    <li class="sidenav-item{{ strpos($routeName, 'mkt.congviec.') === 0 ? ' active open' : '' }}">
+                        <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-cogs d-block"></i><div>Công việc</div></a>
 
-                    <ul class="sidenav-menu">
+                        <ul class="sidenav-menu">
 
-                        <li class="sidenav-item{{ $routeName == 'mkt.congviec.yeucau' ? ' active' : '' }}">
-                            <a href="{{ route('mkt.congviec.yeucau') }}" class="sidenav-link"><i class="sidenav-icon fab fa-elementor d-block"></i><div>Yêu cầu</div></a>
-                        </li>
+                            <li class="sidenav-item{{ $routeName == 'mkt.congviec.yeucau' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.congviec.yeucau') }}" class="sidenav-link"><i class="sidenav-icon fab fa-elementor d-block"></i><div>Yêu cầu</div></a>
+                            </li>
 
-                        <li class="sidenav-item{{ $routeName == 'mkt.congviec.phancong' ? ' active' : '' }}">
-                            <a href="{{ route('mkt.congviec.phancong') }}" class="sidenav-link"><i class="sidenav-icon fas fa-tasks d-block"></i><div>Phân công</div></a>
-                        </li>
+                            <li class="sidenav-item{{ $routeName == 'mkt.congviec.phancong' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.congviec.phancong') }}" class="sidenav-link"><i class="sidenav-icon fas fa-tasks d-block"></i><div>Phân công</div></a>
+                            </li>
 
-                        <li class="sidenav-item{{ $routeName == 'mkt.congviec.baocao' ? ' active' : '' }}">
-                            <a href="{{ route('mkt.congviec.baocao') }}" class="sidenav-link"><i class="sidenav-icon fas fa-file-upload d-block"></i><div>Báo cáo</div></a>
-                        </li>
+                            <li class="sidenav-item{{ $routeName == 'mkt.congviec.baocao' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.congviec.baocao') }}" class="sidenav-link"><i class="sidenav-icon fas fa-file-upload d-block"></i><div>Báo cáo</div></a>
+                            </li>
 
-                        <li class="sidenav-item{{ $routeName == 'mkt.congviec.danhgia' ? ' active' : '' }}">
-                            <a href="{{ route('mkt.congviec.danhgia') }}" class="sidenav-link"><i class="sidenav-icon far fa-check-square d-block"></i><div>Đánh giá</div></a>
-                        </li>
+                            <li class="sidenav-item{{ $routeName == 'mkt.congviec.danhgia' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.congviec.danhgia') }}" class="sidenav-link"><i class="sidenav-icon far fa-check-square d-block"></i><div>Đánh giá</div></a>
+                            </li>
 
-                    </ul>
+                        </ul>
 
-                </li>
+                    </li>
 
-            </ul>
-        </li>
+                </ul>
+            </li>
+        @endif
 
     </ul>
 </div>

@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/page-2', 'App\Http\Controllers\Page2Controller')->name('page-2');
-Route::get('/', 'App\Http\Controllers\HomeController')->name('home');
+Route::get('/', 'App\Http\Controllers\HomeController')->name('home')->middleware(['auth']);
