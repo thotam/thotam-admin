@@ -29,6 +29,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('thotam-auth:hr-key-sync')->everyFifteenMinutes();
         $schedule->command('thotam-hr:hr-sync')->everyFifteenMinutes();
 
+        $schedule->command('thotam-mkt-congviec:notice-deadline')->dailyAt('08:18');
+
         $schedule->command('queue:restart')->hourly();
         $schedule->command('queue:retry all')->everyFifteenMinutes();
         $schedule->command('queue:work --sansdaemon --sleep 3 --tries=5')->everyMinute()->withoutOverlapping(15);
