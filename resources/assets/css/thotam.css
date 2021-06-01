@@ -450,8 +450,9 @@ div.position-relative.dt-select2
 div.position-relative.dt-select2
     > span.select2-container
     textarea.select2-search__field {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+    /* margin-top: 0 !important;
+    margin-bottom: 0 !important; */
+    text-align: center;
 }
 
 div.card-datatable.table-responsive > span.select2-container * {
