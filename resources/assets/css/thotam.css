@@ -360,6 +360,7 @@ textarea.select2-search__field {
     padding-left: 1.5rem !important;
 }
 
+[thotam-table] > tbody > tr > td:first-child,
 [thotam-table] > thead:nth-child(2) > tr > th,
 [thotam-table] > thead:nth-child(2) > tr > td {
     padding: 0.625rem !important;
@@ -413,6 +414,7 @@ textarea.select2-search__field {
     padding-left: 1.5rem !important;
 }
 
+[thotam-datatables] > tbody > tr > td:first-child,
 [thotam-datatables] > thead:nth-child(2) > tr > th,
 [thotam-datatables] > thead:nth-child(2) > tr > td {
     padding: 0.625rem !important;
