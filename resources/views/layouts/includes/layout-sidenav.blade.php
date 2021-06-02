@@ -87,7 +87,7 @@
             </ul>
         </li>
 
-        @if (optional(optional(Auth::user())->hr)->is_mkt_thanhvien || optional(optional(Auth::user())->hr)->is_mkt_quanly)
+        @if (optional(optional(Auth::user())->hr)->is_mkt_thanhvien || optional(optional(Auth::user())->hr)->is_mkt_quanly || optional(optional(Auth::user())->hr)->hasAnyRole(["super-admin", "admin-mkt"]))
             <!-- TT-MKT -->
             <li class="sidenav-item{{ strpos($routeName, 'mkt.') === 0 ? ' active open' : '' }}">
                 <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-bullseye d-block"></i><div>TT-MKT</div></a>
@@ -122,6 +122,25 @@
                         </ul>
 
                     </li>
+
+                    @if (optional(optional(Auth::user())->hr)->is_mkt_mentor || optional(optional(Auth::user())->hr)->is_mkt_quanly || optional(optional(Auth::user())->hr)->hasAnyRole(["super-admin", "admin-mkt"]))
+                        <li class="sidenav-item{{ strpos($routeName, 'mkt.mentor.nhatky.') === 0 ? ' active open' : '' }}">
+                            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-book d-block"></i><div>Nhật ký</div></a>
+
+                            <ul class="sidenav-menu">
+
+                                <li class="sidenav-item{{ $routeName == 'mkt.mentor.nhatky.baocao' ? ' active' : '' }}">
+                                    <a href="{{ route('mkt.mentor.nhatky.baocao') }}" class="sidenav-link"><i class="sidenav-icon fas fa-file-upload d-block"></i><div>Báo cáo</div></a>
+                                </li>
+
+                                <li class="sidenav-item{{ $routeName == 'mkt.mentor.nhatky.danhgia' ? ' active' : '' }}">
+                                    <a href="{{ route('mkt.mentor.nhatky.danhgia') }}" class="sidenav-link"><i class="sidenav-icon fas fa-check-square d-block"></i><div>Đánh giá</div></a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                    @endif
 
                 </ul>
             </li>
