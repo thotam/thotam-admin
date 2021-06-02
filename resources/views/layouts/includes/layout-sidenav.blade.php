@@ -123,7 +123,7 @@
 
                     </li>
 
-                    @if (optional(optional(Auth::user())->hr)->is_mkt_mentor || optional(optional(Auth::user())->hr)->is_mkt_quanly || optional(optional(Auth::user())->hr)->hasAnyRole(["super-admin", "admin-mkt"]))
+                    @if (optional(optional(Auth::user())->hr)->is_mkt_mentor || optional(optional(Auth::user())->hr)->hasAnyRole(["super-admin", "admin-mkt"]))
                         <li class="sidenav-item{{ strpos($routeName, 'mkt.mentor.nhatky.') === 0 ? ' active open' : '' }}">
                             <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-book d-block"></i><div>Nhật ký</div></a>
 
