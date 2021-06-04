@@ -31,6 +31,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('thotam-mkt-congviec:notice-deadline')->dailyAt('08:18');
         $schedule->command('thotam-mkt-mentor:mentor-nhatky-check')->dailyAt('00:07')->withoutOverlapping(15);
+        $schedule->command('thotam-mkt-mentor:mentor-nhatky-tonghop')->hourlyAt(23);->withoutOverlapping(15);
 
         $schedule->command('queue:restart')->hourly();
         $schedule->command('queue:retry all')->everyFifteenMinutes();
