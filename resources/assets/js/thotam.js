@@ -412,6 +412,12 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
+        if ($("input.thotam-month-picker").length != 0) {
+            $("input.thotam-month-picker").each(function (e) {
+                $(this).datepicker("update");
+            });
+        }
+
         if ($("input.thotam-datetimepicker").length != 0) {
             $("input.thotam-datetimepicker").each(function (e) {
                 $(this).datetimepicker("update");
@@ -462,6 +468,37 @@ window.addEventListener("dynamic_update", function (e) {
                             : 1,
                         weekStart: 1,
                         format: "dd-mm-yyyy",
+                        container: !!$(this).attr("thotam-container")
+                            ? "#" + $(this).attr("thotam-container")
+                            : "body",
+                        orientation: isRtl ? "auto right" : "auto left",
+                    })
+                    .on("hide", function (e) {
+                        window.thotam_livewire.set(
+                            $(this).attr("wire:model"),
+                            $(this).val()
+                        );
+                    });
+            });
+        }
+
+        if ($("input.thotam-month-picker").length != 0) {
+            $("input.thotam-month-picker").each(function (e) {
+                $(this)
+                    .datepicker({
+                        language: "vi",
+                        autoclose: true,
+                        toggleActive: true,
+                        todayHighlight: true,
+                        todayBtn: "linked",
+                        clearBtn: true,
+                        maxViewMode: 3,
+                        minViewMode: 1,
+                        startView: !!$(this).attr("thotam-startview")
+                            ? $(this).attr("thotam-startview")
+                            : 1,
+                        weekStart: 1,
+                        format: "mm-yyyy",
                         container: !!$(this).attr("thotam-container")
                             ? "#" + $(this).attr("thotam-container")
                             : "body",
