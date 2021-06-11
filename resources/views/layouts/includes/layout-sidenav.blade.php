@@ -150,6 +150,39 @@
                         </li>
                     @endif
 
+                    <li class="sidenav-item{{ strpos($routeName, 'mkt.kpi.') === 0 ? ' active open' : '' }}">
+                        <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-medal d-block"></i><div>OKR-KPI</div></a>
+
+                        <ul class="sidenav-menu">
+
+
+                            <li class="sidenav-item{{ $routeName == 'mkt.kpi.dinhnghia' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.kpi.dinhnghia') }}" class="sidenav-link"><i class="sidenav-icon fas fa-receipt d-block"></i><div>Định nghĩa</div></a>
+                            </li>
+
+
+                            <li class="sidenav-item{{ strpos($routeName, 'mkt.kpi.okr.') === 0 ? ' active open' : '' }}">
+                                <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon far fa-dot-circle d-block"></i><div>OKR</div></a>
+
+                                <ul class="sidenav-menu">
+
+                                    <li class="sidenav-item{{ $routeName == 'mkt.kpi.okr.canhan' ? ' active' : '' }}">
+                                        <a href="{{ route('mkt.kpi.okr.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
+                                    </li>
+
+                                    <li class="sidenav-item{{ $routeName == 'mkt.kpi.okr.nhom' ? ' active' : '' }}">
+                                        <a href="{{ route('mkt.kpi.okr.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                                    </li>
+
+
+                                </ul>
+
+                            </li>
+
+                        </ul>
+
+                    </li>
+
                 </ul>
             </li>
         @endif

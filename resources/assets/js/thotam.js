@@ -588,3 +588,11 @@ function dt_draw_event_function() {
         window.fireEvent("on" + dt_draw_event.eventType, dt_draw_event);
     }
 }
+
+Handlebars.registerHelper("month_mY", function (aString) {
+    return moment(aString).format("MM-YYYY");
+});
+
+Handlebars.registerHelper("month_dmYHi", function (aString) {
+    return moment(aString).format("DD-MM-YYYY HH:mm");
+});
