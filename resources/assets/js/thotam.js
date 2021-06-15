@@ -589,10 +589,12 @@ function dt_draw_event_function() {
     }
 }
 
-Handlebars.registerHelper("month_mY", function (aString) {
-    return moment(aString).format("MM-YYYY");
-});
+if (typeof Handlebars == "object") {
+    Handlebars.registerHelper("month_mY", function (aString) {
+        return moment(aString).format("MM-YYYY");
+    });
 
-Handlebars.registerHelper("month_dmYHi", function (aString) {
-    return moment(aString).format("DD-MM-YYYY HH:mm");
-});
+    Handlebars.registerHelper("month_dmYHi", function (aString) {
+        return moment(aString).format("DD-MM-YYYY HH:mm");
+    });
+}
