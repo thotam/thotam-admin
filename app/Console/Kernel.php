@@ -34,6 +34,11 @@ class Kernel extends ConsoleKernel
         $schedule->command('thotam-mkt-mentor:mentor-nhatky-tonghop')->hourlyAt(23)->withoutOverlapping(15);
         $schedule->command('thotam-mkt-mentor:mentor-nhatky-switch')->monthlyOn(3, '05:00')->withoutOverlapping(15);
 
+        $schedule->command('thotam-icpc1hn-api:mkt-dinhnghia-nhomviec-sync')->weeklyOn(1, '04:00')->withoutOverlapping(15);
+        $schedule->command('thotam-icpc1hn-api:mkt-dinhnghia-congviec-sync')->weeklyOn(1, '06:00')->withoutOverlapping(15);
+
+        $schedule->command('thotam-icpc1hn-api:icpc1hn-renew-token')->dailyAt('05:30')->withoutOverlapping(15);
+
         $schedule->command('queue:restart')->hourly();
         $schedule->command('queue:retry all')->everyFifteenMinutes();
         $schedule->command('queue:work --sansdaemon --sleep 3 --tries=5')->everyMinute()->withoutOverlapping(15);
