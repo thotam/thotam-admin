@@ -94,9 +94,23 @@
 
                 <ul class="sidenav-menu">
 
-                    <li class="sidenav-item{{ $routeName == 'mkt.nhom' ? ' active' : '' }}">
-                        <a href="{{ route('mkt.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                    <li class="sidenav-item{{ strpos($routeName, 'mkt.quanly.') === 0 ? ' active open' : '' }}">
+                        <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-users-cog d-block"></i><div>Quản lý</div></a>
+
+                        <ul class="sidenav-menu">
+
+                            <li class="sidenav-item{{ $routeName == 'mkt.quanly.canhan' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.quanly.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
+                            </li>
+
+                            <li class="sidenav-item{{ $routeName == 'mkt.quanly.nhom' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.quanly.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                            </li>
+
+                        </ul>
+
                     </li>
+
 
                     <li class="sidenav-item{{ strpos($routeName, 'mkt.congviec.') === 0 ? ' active open' : '' }}">
                         <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-cogs d-block"></i><div>Công việc</div></a>
@@ -160,7 +174,6 @@
                                 <a href="{{ route('mkt.kpi.dinhnghia') }}" class="sidenav-link"><i class="sidenav-icon fas fa-receipt d-block"></i><div>Định nghĩa</div></a>
                             </li>
 
-
                             <li class="sidenav-item{{ strpos($routeName, 'mkt.kpi.okr.') === 0 ? ' active open' : '' }}">
                                 <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon far fa-dot-circle d-block"></i><div>OKR</div></a>
 
@@ -174,9 +187,15 @@
                                         <a href="{{ route('mkt.kpi.okr.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
                                     </li>
 
-
                                 </ul>
+                            </li>
 
+                            <li class="sidenav-item{{ $routeName == 'mkt.kpi.giaonhan' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.kpi.giaonhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-exchange-alt d-block"></i><div>Giao - Nhận</div></a>
+                            </li>
+
+                            <li class="sidenav-item{{ $routeName == 'mkt.kpi.baocao' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.kpi.baocao') }}" class="sidenav-link"><i class="sidenav-icon fas fa-file-upload d-block"></i><div>Báo cáo</div></a>
                             </li>
 
                         </ul>
