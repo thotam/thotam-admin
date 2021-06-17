@@ -202,6 +202,10 @@
                                 <a href="{{ route('mkt.kpi.danhgia') }}" class="sidenav-link"><i class="sidenav-icon fas fa-check-square d-block"></i><div>Đánh giá</div></a>
                             </li>
 
+                            <li class="sidenav-item{{ $routeName == 'mkt.kpi.bangvang' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.kpi.bangvang') }}" class="sidenav-link text-warning"><i class="sidenav-icon fas fa-crown d-block"></i><div>Bảng vàng</div></a>
+                            </li>
+
                         </ul>
 
                     </li>
