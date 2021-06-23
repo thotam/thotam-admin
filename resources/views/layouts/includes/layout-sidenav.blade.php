@@ -210,6 +210,10 @@
                                 <a href="{{ route('mkt.kpi.daotao') }}" class="sidenav-link"><i class="sidenav-icon fab fa-leanpub d-block"></i><div>Đào tạo</div></a>
                             </li>
 
+                            <li class="sidenav-item{{ $routeName == 'mkt.kpi.thaido' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.kpi.thaido') }}" class="sidenav-link"><i class="sidenav-icon fas fa-thumbs-up d-block"></i><div>Thái độ</div></a>
+                            </li>
+
                         </ul>
 
                     </li>
