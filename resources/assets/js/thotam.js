@@ -491,7 +491,10 @@ window.addEventListener("dynamic_update", function (e) {
                         toggleActive: true,
                         todayHighlight: true,
                         todayBtn: "linked",
-                        clearBtn: true,
+                        clearBtn:
+                            $(this).attr("thotam-clearBtn") == "false"
+                                ? false
+                                : true,
                         maxViewMode: 3,
                         minViewMode: 1,
                         startView: !!$(this).attr("thotam-startview")
