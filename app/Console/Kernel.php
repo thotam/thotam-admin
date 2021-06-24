@@ -40,6 +40,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('thotam-icpc1hn-api:icpc1hn-renew-token')->dailyAt('05:30')->withoutOverlapping(15);
 
         $schedule->command('thotam-mkt-kpi:generate-tdtp')->twiceMonthly(1, 25,'07:23');
+        $schedule->command('thotam-mkt-kpi:generate-kpi-canhan')->dailyAt('00:13');
 
         $schedule->command('queue:restart')->hourly();
         $schedule->command('queue:retry all')->everySixHours();
