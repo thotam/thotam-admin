@@ -214,8 +214,20 @@
                                 <a href="{{ route('mkt.kpi.thaido') }}" class="sidenav-link"><i class="sidenav-icon fas fa-thumbs-up d-block"></i><div>Thái độ</div></a>
                             </li>
 
-                            <li class="sidenav-item{{ $routeName == 'mkt.kpi.nhom' ? ' active' : '' }}">
-                                <a href="{{ route('mkt.kpi.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                            <li class="sidenav-item{{ strpos($routeName, 'mkt.kpi.ketqua.') === 0 ? ' active open' : '' }}">
+                                <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-poll d-block"></i><div>Kết quả</div></a>
+
+                                <ul class="sidenav-menu">
+
+                                    <li class="sidenav-item{{ $routeName == 'mkt.kpi.ketqua.canhan' ? ' active' : '' }}">
+                                        <a href="{{ route('mkt.kpi.ketqua.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
+                                    </li>
+
+                                    <li class="sidenav-item{{ $routeName == 'mkt.kpi.ketqua.nhom' ? ' active' : '' }}">
+                                        <a href="{{ route('mkt.kpi.ketqua.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                                    </li>
+
+                                </ul>
                             </li>
 
                         </ul>
