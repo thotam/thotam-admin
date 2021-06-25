@@ -588,6 +588,18 @@ if ($("select.colum_filter_id_multi").length != 0) {
     });
 }
 
+$("[thotam-clear-btn]").on("click", function () {
+    $("[thotam-clear-target=" + $(this).attr("thotam-clear-btn") + "]").val(
+        null
+    );
+
+    dt_draw_event_function();
+});
+
+$("[thotam_dt_date_range_filter]").on("change", function () {
+    dt_draw_event_function();
+});
+
 $("[thotam_dt_colum_filter]").on("change", function () {
     dt_draw_event_function();
 });
