@@ -516,6 +516,26 @@ window.addEventListener("dynamic_update", function (e) {
             });
         }
 
+        if ($("input.thotam-filestyle[thotam-non-update]").length != 0) {
+            $("input.thotam-filestyle[thotam-non-update]").each(function (e) {
+                $(this).filestyle({
+                    placeholder: $(this).attr("thotam-placeholder"),
+                    btnClass: $(this).attr("thotam-btnClass"),
+                    text: $(this).attr("thotam-text"),
+                    htmlIcon: '<span class="fas fa-file mr-2"></span>',
+                });
+
+                $(this).removeAttr("thotam-non-update");
+
+                $(this).on("change", function () {
+                    window.thotam_livewire.set(
+                        $(this).attr("wire:model"),
+                        $(this).val()
+                    );
+                });
+            });
+        }
+
         if ($("input.thotam-datetimepicker").length != 0) {
             $("input.thotam-datetimepicker").each(function (e) {
                 $(this)
