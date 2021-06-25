@@ -516,22 +516,13 @@ window.addEventListener("dynamic_update", function (e) {
             });
         }
 
-        if ($("input.thotam-filestyle[thotam-non-update]").length != 0) {
-            $("input.thotam-filestyle[thotam-non-update]").each(function (e) {
+        if ($("input.thotam-filestyle").length != 0) {
+            $("input.thotam-filestyle").each(function (e) {
                 $(this).filestyle({
                     placeholder: $(this).attr("thotam-placeholder"),
                     btnClass: $(this).attr("thotam-btnClass"),
                     text: $(this).attr("thotam-text"),
                     htmlIcon: '<span class="fas fa-file mr-2"></span>',
-                });
-
-                $(this).removeAttr("thotam-non-update");
-
-                $(this).on("change", function () {
-                    window.thotam_livewire.set(
-                        $(this).attr("wire:model"),
-                        $(this).val()
-                    );
                 });
             });
         }
@@ -633,3 +624,34 @@ if (typeof Handlebars == "object") {
         return moment(aString).format("DD-MM-YYYY HH:mm");
     });
 }
+
+//blueimp-carousel-poster
+function TT_BlueimpCarousel() {
+    $("[thotam-id='blueimp-carousel']").each(function (e) {
+        var blue_data = [];
+
+        $(this)
+            .find("[thotam-blueimp-carousel]")
+            .each(function (e) {
+                blue_data.push({
+                    type: $(this).attr("mine-type"),
+                    href: $(this).attr("href"),
+                    thumbnail: $(this).attr("thumbnail"),
+                    poster: $(this).attr("thumbnail"),
+                });
+            });
+
+        window.blueimpGallery(blue_data, {
+            container: this,
+            carousel: true,
+        });
+    });
+}
+
+$(".modal.fade").on("shown.bs.modal", function () {
+    if ($("[thotam-id='blueimp-carousel']").length != 0) {
+        setTimeout(function () {
+            TT_BlueimpCarousel();
+        }, 150);
+    }
+});
