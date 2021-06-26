@@ -641,10 +641,17 @@ function TT_BlueimpCarousel() {
                 });
             });
 
-        window.blueimpGallery(blue_data, {
+        blueimpGallery(blue_data, {
             container: this,
             carousel: true,
         });
+    });
+}
+
+//plyr
+function TT_Plyr() {
+    $(".thotam-plyr").each(function (e) {
+        new Plyr(this);
     });
 }
 
@@ -652,6 +659,12 @@ $(".modal.fade").on("shown.bs.modal", function () {
     if ($("[thotam-id='blueimp-carousel']").length != 0) {
         setTimeout(function () {
             TT_BlueimpCarousel();
-        }, 150);
+        }, 250);
+    }
+
+    if ($(".thotam-plyr").length != 0) {
+        setTimeout(function () {
+            TT_Plyr();
+        }, 100);
     }
 });
