@@ -651,7 +651,16 @@ function TT_BlueimpCarousel() {
 //plyr
 function TT_Plyr() {
     $(".thotam-plyr").each(function (e) {
-        new Plyr(this);
+        new Plyr(this, {
+            vimeo: {
+                byline: false,
+                portrait: false,
+                title: false,
+                speed: true,
+                transparent: false,
+                quality: "1080p",
+            },
+        });
     });
 }
 
