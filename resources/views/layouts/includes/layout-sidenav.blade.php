@@ -238,5 +238,18 @@
             </li>
         @endif
 
+        <!-- Báo cáo -->
+        <li class="sidenav-item{{ strpos($routeName, 'baocao.') === 0 ? ' active open' : '' }}">
+            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-file-signature d-block"></i><div>Báo cáo</div></a>
+
+            <ul class="sidenav-menu">
+
+                <li class="sidenav-item{{ $routeName == 'baocao.muoingon' ? ' active' : '' }}">
+                    <a href="{{ route('baocao.muoingon') }}" class="sidenav-link"><i class="sidenav-icon fas fa-keyboard d-block"></i><div>Mười ngón</div></a>
+                </li>
+
+            </ul>
+        </li>
+
     </ul>
 </div>
