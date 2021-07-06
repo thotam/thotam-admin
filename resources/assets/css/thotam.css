@@ -345,16 +345,6 @@ textarea.select2-search__field {
     text-transform: none !important;
 }
 
-[thotam-table] > tbody > tr > td,
-[thotam-table] > thead > tr > th {
-    width: 5px;
-}
-
-[thotam-table] > tbody > tr > td:last-child,
-[thotam-table] > thead > tr > th:last-child {
-    width: auto;
-}
-
 [thotam-table] > thead:nth-child(2) > tr > th:first-child,
 [thotam-table] > thead:nth-child(2) > tr > td:first-child {
     padding-left: 1.5rem !important;
@@ -397,16 +387,6 @@ textarea.select2-search__field {
 [thotam-datatables] > thead > tr > th {
     font-size: 0.894rem !important;
     text-transform: none !important;
-}
-
-[thotam-datatables] > tbody > tr > td,
-[thotam-datatables] > thead > tr > th {
-    width: 5px;
-}
-
-[thotam-datatables] > tbody > tr > td:last-child,
-[thotam-datatables] > thead > tr > th:last-child {
-    width: auto;
 }
 
 [thotam-datatables] > thead:nth-child(2) > tr > th:first-child,

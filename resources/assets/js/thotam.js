@@ -380,6 +380,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     Livewire.hook("message.processed", (message, component) => {
+        $(function () {
+            if ($("html").attr("dir") === "rtl") {
+                $(".tooltip-demo [data-placement=right]")
+                    .attr("data-placement", "left")
+                    .addClass("rtled");
+                $(".tooltip-demo [data-placement=left]:not(.rtled)")
+                    .attr("data-placement", "right")
+                    .addClass("rtled");
+            }
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Popovers
+
+            if ($("html").attr("dir") === "rtl") {
+                $(".popover-demo [data-placement=right]")
+                    .attr("data-placement", "left")
+                    .addClass("rtled");
+                $(".popover-demo [data-placement=left]:not(.rtled)")
+                    .attr("data-placement", "right")
+                    .addClass("rtled");
+            }
+            $('[data-toggle="popover"]').popover();
+        });
+
         if ($("select.thotam-select2").length != 0) {
             $("select.thotam-select2").each(function (e) {
                 $(this)
@@ -453,6 +477,12 @@ window.addEventListener("dynamic_update", function (e) {
 
         if ($("input.thotam-datepicker").length != 0) {
             $("input.thotam-datepicker").each(function (e) {
+                if (!!$(this).attr("thotam-orientation")) {
+                    vertical_align = $(this).attr("thotam-orientation");
+                } else {
+                    vertical_align = "auto";
+                }
+
                 $(this)
                     .datepicker({
                         language: "vi",
@@ -471,7 +501,9 @@ window.addEventListener("dynamic_update", function (e) {
                         container: !!$(this).attr("thotam-container")
                             ? "#" + $(this).attr("thotam-container")
                             : "body",
-                        orientation: isRtl ? "auto right" : "auto left",
+                        orientation: isRtl
+                            ? vertical_align + " right"
+                            : vertical_align + " left",
                     })
                     .on("hide", function (e) {
                         window.thotam_livewire.set(
@@ -518,11 +550,17 @@ window.addEventListener("dynamic_update", function (e) {
 
         if ($("input.thotam-filestyle").length != 0) {
             $("input.thotam-filestyle").each(function (e) {
+                if (!!$(this).attr("thotam-icon")) {
+                    thotam_icon = $(this).attr("thotam-icon");
+                } else {
+                    thotam_icon = "fas fa-file";
+                }
+
                 $(this).filestyle({
                     placeholder: $(this).attr("thotam-placeholder"),
                     btnClass: $(this).attr("thotam-btnClass"),
                     text: $(this).attr("thotam-text"),
-                    htmlIcon: '<span class="fas fa-file mr-2"></span>',
+                    htmlIcon: '<span class="' + thotam_icon + ' mr-2"></span>',
                 });
             });
         }
@@ -622,6 +660,10 @@ if (typeof Handlebars == "object") {
 
     Handlebars.registerHelper("month_dmYHi", function (aString) {
         return moment(aString).format("DD-MM-YYYY HH:mm");
+    });
+
+    Handlebars.registerHelper("date_dmY", function (aString) {
+        return moment(aString).format("DD-MM-YYYY");
     });
 }
 
