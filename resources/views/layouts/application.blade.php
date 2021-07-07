@@ -65,8 +65,8 @@
     @yield('layout-content')
 
     <!-- Core scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/alpinejs@3.2.1/dist/cdn.min.js" defer></script>
     <script src="{{ mix('/vendor/libs/popper/popper.js') }}"></script>
     <script src="{{ mix('/vendor/js/bootstrap.js') }}"></script>
     <script src="{{ mix('/vendor/js/sidenav.js') }}"></script>
