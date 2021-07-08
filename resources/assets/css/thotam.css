@@ -670,3 +670,9 @@ span.dropdown-item:hover {
     background-color: #f9bec0;
     color: #fff;
 }
+
+body {
+    /* We need to assaign this CSS Custom property to the body instead of :root, because of CSS Specificity and codepen stylesheet placement before loaded CKE5 content. */
+    --ck-z-default: 100;
+    --ck-z-modal: calc(var(--ck-z-default) + 999);
+}

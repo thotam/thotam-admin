@@ -380,6 +380,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     Livewire.hook("message.processed", (message, component) => {
+        thotam_rerender();
+
         $(function () {
             if ($("html").attr("dir") === "rtl") {
                 $(".tooltip-demo [data-placement=right]")
@@ -719,3 +721,252 @@ $(".modal.fade").on("shown.bs.modal", function () {
         }, 100);
     }
 });
+
+//Rerendering when updated
+function thotam_rerender() {
+    if ($("select[thotam-select2-rerender]").length != 0) {
+        $("select[thotam-select2-rerender]").each(function (e) {
+            thotam_livewire_id = eval($(this).attr("thotam-livewire-id"));
+
+            if (!!$(this).attr("multiple")) {
+                html = "";
+            } else {
+                html = "<option selected></option>";
+            }
+
+            array_data = thotam_livewire_id.get(
+                $(this).attr("thotam-select2-rerender")
+            );
+
+            $.each(array_data, function (key, value) {
+                html += "<option value='" + key + "'>" + value + "</option>";
+            });
+
+            $(this).html(html);
+
+            $(this).val(thotam_livewire_id.get($(this).attr("wire:model")));
+
+            $(this).trigger("change.select2");
+        });
+    }
+
+    if ($("input[thotam-datepicker='true']").length != 0) {
+        $("input[thotam-datepicker='true']").each(function (e) {
+            $(this).datepicker("update");
+        });
+    }
+
+    if ($("input[thotam-datetimepicker='true']").length != 0) {
+        $("input[thotam-datetimepicker='true']").each(function (e) {
+            $(this).datetimepicker("update");
+        });
+    }
+}
+
+//Livewire with select2
+window.thotam_select2 = function (thotam_el, thotam_livewire_id) {
+    $(thotam_el).select2({
+        placeholder: $(thotam_el).attr("thotam-placeholder"),
+        minimumResultsForSearch: $(thotam_el).attr("thotam-search"),
+        allowClear: !!$(thotam_el).attr("thotam-allow-clear"),
+        dropdownParent: $("#" + $(thotam_el).attr("id") + "_div"),
+    });
+
+    if (!!$(thotam_el).attr("multiple")) {
+        $(thotam_el).on("select2:close", function (e) {
+            thotam_livewire_id.set(
+                $(thotam_el).attr("wire:model"),
+                $(thotam_el).val()
+            );
+        });
+    } else {
+        $(thotam_el).on("change", function (e) {
+            thotam_livewire_id.set(
+                $(thotam_el).attr("wire:model"),
+                $(thotam_el).val()
+            );
+        });
+    }
+};
+
+//Livewire with datetimepicker
+window.thotam_datetimepicker = function (thotam_el, thotam_livewire_id) {
+    $(thotam_el)
+        .datetimepicker({
+            format: "dd-mm-yyyy hh:ii",
+            autoclose: true,
+            todayBtn: true,
+            minuteStep: 15,
+            todayHighlight: true,
+            bootcssVer: 4,
+            zIndex: 3050,
+            language: "vi",
+            pickerPosition: "top-left",
+            weekStart: 1,
+        })
+        .on("hide", function (e) {
+            thotam_livewire_id.set(
+                $(thotam_el).attr("wire:model"),
+                $(thotam_el).val()
+            );
+        });
+
+    $(thotam_el).attr("thotam-datetimepicker", true);
+};
+
+//Livewire with datepicker
+window.thotam_datepicker = function (
+    thotam_el,
+    thotam_livewire_id,
+    minview = 0,
+    startview = 0,
+    format = "dd-mm-yyyy"
+) {
+    if (!!$(thotam_el).attr("thotam-orientation")) {
+        vertical_align = $(thotam_el).attr("thotam-orientation");
+    } else {
+        vertical_align = "auto";
+    }
+
+    $(thotam_el)
+        .datepicker({
+            language: "vi",
+            autoclose: true,
+            toggleActive: true,
+            todayHighlight: true,
+            todayBtn: "linked",
+            clearBtn: $(this).attr("thotam-clearBtn") == "false" ? false : true,
+            maxViewMode: 3,
+            minViewMode: minview,
+            startView: startview,
+            weekStart: 1,
+            format: format,
+            container: !!$(thotam_el).attr("thotam-container")
+                ? "#" + $(thotam_el).attr("thotam-container")
+                : "body",
+            orientation: isRtl
+                ? vertical_align + " right"
+                : vertical_align + " left",
+        })
+        .on("hide", function (e) {
+            thotam_livewire_id.set(
+                $(thotam_el).attr("wire:model"),
+                $(thotam_el).val()
+            );
+        });
+
+    $(thotam_el).attr("thotam-datepicker", true);
+};
+
+//Livewire with filestyle
+window.thotam_filestyle = function (thotam_el, thotam_icon = "fas fa-file") {
+    $(thotam_el).filestyle({
+        placeholder: $(thotam_el).attr("thotam-placeholder"),
+        btnClass: $(thotam_el).attr("thotam-btnClass"),
+        text: $(thotam_el).attr("thotam-text"),
+        htmlIcon: '<span class="' + thotam_icon + ' mr-2"></span>',
+    });
+};
+
+//Livewire with ckeditor
+window.thotam_ckeditor = function (thotam_el, thotam_dispatch) {
+    ClassicEditor.create(thotam_el, {
+        removePlugins: ["Title"],
+
+        toolbar: {
+            items: [
+                "heading",
+                "|",
+                "bold",
+                "italic",
+                "underline",
+                "strikethrough",
+                "link",
+                "subscript",
+                "superscript",
+                "bulletedList",
+                "numberedList",
+                "|",
+                "alignment",
+                "fontFamily",
+                "fontSize",
+                "fontColor",
+                "fontBackgroundColor",
+                "highlight",
+                "|",
+                "indent",
+                "outdent",
+                "|",
+                //"imageUpload",
+                "blockQuote",
+                "insertTable",
+                "mediaEmbed",
+                "code",
+                "codeBlock",
+                "horizontalLine",
+                //"MathType",
+                //"ChemType",
+                "specialCharacters",
+                //"todoList",
+                //"pageBreak",
+                "|",
+                "undo",
+                "redo",
+                "removeFormat",
+                //"|",
+                //"exportPdf"
+            ],
+        },
+        language: "vi",
+        image: {
+            toolbar: [
+                "imageTextAlternative",
+                "imageStyle:full",
+                "imageStyle:side",
+            ],
+        },
+        table: {
+            contentToolbar: [
+                "tableColumn",
+                "tableRow",
+                "mergeTableCells",
+                "tableCellProperties",
+                "tableProperties",
+            ],
+            tableProperties: {
+                // ...
+            },
+            // Configuration of the TableCellProperties plugin.
+            tableCellProperties: {
+                // ...
+            },
+        },
+        licenseKey: "",
+    })
+        .then(function (editor) {
+            editor.model.document.on("change:data", () => {
+                thotam_dispatch("input", editor.getData());
+            });
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
+
+$.fn.modal.Constructor.prototype._enforceFocus = function () {
+    $(document)
+        .off("focusin.bs.modal")
+        .on(
+            "focusin.bs.modal",
+            $.proxy(function (e) {
+                if (
+                    typeof this.$element !== "undefined" &&
+                    this.$element[0] !== e.target &&
+                    !this.$element.has(e.target).length &&
+                    !$(e.target).closest(".cke_dialog, .cke").length
+                ) {
+                    this.$element.trigger("focus");
+                }
+            }, this)
+        );
+};

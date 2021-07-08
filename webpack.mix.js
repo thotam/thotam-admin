@@ -182,6 +182,8 @@ mixAssetsDir("favicon.ico", (src, dest) => mix.copy(src, dest));
 
 mixAssetsDir("css/**/*.css", (src, dest) => mix.copy(src, dest));
 
+mixAssetsDir("js/ckeditor/*.js", (src, dest) => mix.copy(src, dest));
+
 /*
  |--------------------------------------------------------------------------
  | Application assets
