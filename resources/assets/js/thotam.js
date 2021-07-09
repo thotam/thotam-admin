@@ -720,6 +720,8 @@ $(".modal.fade").on("shown.bs.modal", function () {
             TT_Plyr();
         }, 100);
     }
+
+    thotam_perfect_scrollbar_scroll();
 });
 
 //Rerendering when updated
@@ -868,6 +870,24 @@ window.thotam_filestyle = function (thotam_el, thotam_icon = "fas fa-file") {
     });
 };
 
+//Livewire with perfect_scrollbar
+window.thotam_perfect_scrollbar = function (thotam_el) {
+    new PerfectScrollbar(thotam_el, {
+        suppressScrollX: true,
+        wheelPropagation: true,
+    });
+};
+
+window.thotam_perfect_scrollbar_scroll = function () {
+    $(".chat-scroll").each(function () {
+        var this_scroll = this;
+        setTimeout(function () {
+            this_scroll.scrollTop =
+                this_scroll.scrollHeight - this_scroll.clientHeight;
+        }, 300);
+    });
+};
+
 //Livewire with ckeditor
 window.thotam_ckeditor = function (thotam_el, thotam_dispatch) {
     ClassicEditor.create(thotam_el, {
@@ -958,7 +978,7 @@ $.fn.modal.Constructor.prototype._enforceFocus = function () {
         .off("focusin.bs.modal")
         .on(
             "focusin.bs.modal",
-            $.proxy(function (e) {
+            function (e) {
                 if (
                     typeof this.$element !== "undefined" &&
                     this.$element[0] !== e.target &&
@@ -967,6 +987,6 @@ $.fn.modal.Constructor.prototype._enforceFocus = function () {
                 ) {
                     this.$element.trigger("focus");
                 }
-            }, this)
+            }.bind(this)
         );
 };
