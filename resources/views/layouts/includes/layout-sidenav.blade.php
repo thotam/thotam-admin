@@ -244,6 +244,23 @@
 
             <ul class="sidenav-menu">
 
+                <!-- Định kỳ -->
+                <li class="sidenav-item{{ strpos($routeName, 'baocao.dinhky') === 0 ? ' active open' : '' }}">
+                    <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon far fa-calendar-alt d-block"></i><div>Định kỳ</div></a>
+
+                    <ul class="sidenav-menu">
+
+                        <li class="sidenav-item{{ $routeName == 'baocao.dinhky.canhan' ? ' active' : '' }}">
+                            <a href="{{ route('baocao.dinhky.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
+                        </li>
+
+                        <li class="sidenav-item{{ $routeName == 'baocao.dinhky.nhom' ? ' active' : '' }}">
+                            <a href="{{ route('baocao.dinhky.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                        </li>
+
+                    </ul>
+                </li>
+
                 <li class="sidenav-item{{ $routeName == 'baocao.muoingon' ? ' active' : '' }}">
                     <a href="{{ route('baocao.muoingon') }}" class="sidenav-link"><i class="sidenav-icon fas fa-keyboard d-block"></i><div>Mười ngón</div></a>
                 </li>
