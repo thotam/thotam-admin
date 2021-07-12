@@ -51,6 +51,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'seen_time' => 'datetime',
+        'link_at' => 'datetime',
     ];
 }
