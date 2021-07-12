@@ -30,6 +30,8 @@ class User extends Authenticatable
         'password',
         'hr_key',
         'info_mnv',
+        'link_at',
+        'link_by',
     ];
 
     /**
