@@ -619,6 +619,30 @@ if ($("select.colum_filter_id_multi").length != 0) {
     });
 }
 
+if ($("input.colum_filter_id_date").length != 0) {
+    $("input.colum_filter_id_date").each(function (e) {
+        $(this).datepicker({
+            language: "vi",
+            autoclose: true,
+            toggleActive: true,
+            todayHighlight: true,
+            todayBtn: "linked",
+            clearBtn: $(this).attr("thotam-clearBtn") == "false" ? false : true,
+            maxViewMode: 3,
+            minViewMode: 1,
+            startView: !!$(this).attr("thotam-startview")
+                ? $(this).attr("thotam-startview")
+                : 1,
+            weekStart: 1,
+            format: "mm-yyyy",
+            container: !!$(this).attr("thotam-container")
+                ? "#" + $(this).attr("thotam-container")
+                : "body",
+            orientation: isRtl ? "auto right" : "auto left",
+        });
+    });
+}
+
 $("[thotam-clear-btn]").on("click", function () {
     $("[thotam-clear-target=" + $(this).attr("thotam-clear-btn") + "]").val(
         null
@@ -628,6 +652,10 @@ $("[thotam-clear-btn]").on("click", function () {
 });
 
 $("[thotam_dt_date_range_filter]").on("change", function () {
+    dt_draw_event_function();
+});
+
+$("[thotam_dt_date_filter]").on("change", function () {
     dt_draw_event_function();
 });
 
