@@ -791,6 +791,65 @@ window.thotam_select2 = function (thotam_el, thotam_livewire_id) {
     }
 };
 
+//Livewire with ajax_select2
+window.thotam_ajax_select2 = function (
+    thotam_el,
+    thotam_livewire_id,
+    url,
+    perPage,
+    token
+) {
+    $(thotam_el).select2({
+        placeholder: $(thotam_el).attr("thotam-placeholder"),
+        minimumResultsForSearch: $(thotam_el).attr("thotam-search"),
+        allowClear: !!$(thotam_el).attr("thotam-allow-clear"),
+        dropdownParent: $("#" + $(thotam_el).attr("id") + "_div"),
+        ajax: {
+            url: url,
+            dataType: "json",
+            method: "POST",
+            headers: {
+                "X-CSRF-TOKEN": token,
+            },
+            delay: 1000,
+            data: function (params) {
+                return {
+                    search: params.term, // search term
+                    page: params.page || 1,
+                    perPage: perPage,
+                };
+            },
+            processResults: function (data, params) {
+                params.page = params.page || 1;
+
+                return {
+                    results: data.data,
+                    pagination: {
+                        more: params.page * perPage < data.total_count,
+                    },
+                };
+            },
+            cache: true,
+        },
+    });
+
+    if (!!$(thotam_el).attr("multiple")) {
+        $(thotam_el).on("select2:close", function (e) {
+            thotam_livewire_id.set(
+                $(thotam_el).attr("wire:model"),
+                $(thotam_el).val()
+            );
+        });
+    } else {
+        $(thotam_el).on("change", function (e) {
+            thotam_livewire_id.set(
+                $(thotam_el).attr("wire:model"),
+                $(thotam_el).val()
+            );
+        });
+    }
+};
+
 //Livewire with datetimepicker
 window.thotam_datetimepicker = function (thotam_el, thotam_livewire_id) {
     $(thotam_el)
