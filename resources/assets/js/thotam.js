@@ -819,6 +819,29 @@ window.thotam_select2 = function (thotam_el, thotam_livewire_id) {
     }
 };
 
+//blueimp-carousel-poster
+window.thotam_blueimp = function (thotam_el) {
+    setTimeout(function () {
+        var blue_data = [];
+
+        $(thotam_el)
+            .find("[thotam-blueimp-carousel]")
+            .each(function (e) {
+                blue_data.push({
+                    type: $(this).attr("mine-type"),
+                    href: $(this).attr("href"),
+                    thumbnail: $(this).attr("thumbnail"),
+                    poster: $(this).attr("thumbnail"),
+                });
+            });
+
+        blueimpGallery(blue_data, {
+            container: thotam_el,
+            carousel: true,
+        });
+    }, 250);
+};
+
 //Livewire with ajax_select2
 window.thotam_ajax_select2 = function (
     thotam_el,

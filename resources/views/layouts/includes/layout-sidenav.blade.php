@@ -261,8 +261,14 @@
                     </ul>
                 </li>
 
+                <!-- Mười ngón -->
                 <li class="sidenav-item{{ $routeName == 'baocao.muoingon' ? ' active' : '' }}">
                     <a href="{{ route('baocao.muoingon') }}" class="sidenav-link"><i class="sidenav-icon fas fa-keyboard d-block"></i><div>Mười ngón</div></a>
+                </li>
+
+                <!-- Lan tỏa nhân viên mới -->
+                <li class="sidenav-item{{ $routeName == 'baocao.lantoa' ? ' active' : '' }}">
+                    <a href="{{ route('baocao.lantoa') }}" class="sidenav-link"><i class="sidenav-icon fab fa-facebook-square d-block"></i><div>Lan tỏa - NV mới</div></a>
                 </li>
 
             </ul>
