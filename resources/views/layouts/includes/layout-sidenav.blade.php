@@ -271,6 +271,11 @@
                     <a href="{{ route('baocao.lantoa') }}" class="sidenav-link"><i class="sidenav-icon fab fa-facebook-square d-block"></i><div>Lan tỏa - NV mới</div></a>
                 </li>
 
+                <!-- Bài đăng tuyển dụng -->
+                <li class="sidenav-item{{ $routeName == 'baocao.tuyendung' ? ' active' : '' }}">
+                    <a href="{{ route('baocao.tuyendung') }}" class="sidenav-link"><i class="sidenav-icon fab fa-facebook-square d-block"></i><div>Bài đăng tuyển dụng</div></a>
+                </li>
+
             </ul>
         </li>
 
