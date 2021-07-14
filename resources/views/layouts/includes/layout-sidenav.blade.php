@@ -25,12 +25,12 @@
         </li>
 
         <!-- Admin -->
-        @if (Auth::user()->hr->hasAnyRole(["super-admin", "admin"]))
+        @if (Auth::user()->hr->hasAnyRole(["super-admin", "admin", "admin-product"]))
             <li class="sidenav-item{{ strpos($routeName, 'admin.') === 0 ? ' active open' : '' }}">
                 <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-users-cog d-block"></i><div>Admin</div></a>
 
                 <ul class="sidenav-menu">
-
+                    @if (Auth::user()->hr->hasAnyRole(["super-admin", "admin"]))
                         <li class="sidenav-item{{ strpos($routeName, 'admin.member.') === 0 ? ' active open' : '' }}">
                             <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-user-friends d-block"></i><div>Thành viên</div></a>
 
@@ -66,6 +66,14 @@
                                 </li>
                             </ul>
                         </li>
+                    @endif
+
+                    @if (Auth::user()->hr->hasAnyRole(["super-admin", "admin", "admin-product"]))
+                        <!-- Admin Sản phẩm -->
+                        <li class="sidenav-item{{ $routeName == 'admin.product' ? ' active' : '' }}">
+                            <a href="{{ route('admin.product') }}" class="sidenav-link pr-1"><i class="sidenav-icon fab fa-product-hunt d-block"></i><div>Sản phẩm</div></a>
+                        </li>
+                    @endif
 
                 </ul>
             </li>
