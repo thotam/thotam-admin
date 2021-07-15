@@ -269,9 +269,9 @@
                     </ul>
                 </li>
 
-                <!-- Mười ngón -->
-                <li class="sidenav-item{{ $routeName == 'baocao.muoingon' ? ' active' : '' }}">
-                    <a href="{{ route('baocao.muoingon') }}" class="sidenav-link"><i class="sidenav-icon fas fa-keyboard d-block"></i><div>Mười ngón</div></a>
+                <!-- Bài đăng sản phẩm -->
+                <li class="sidenav-item{{ $routeName == 'baocao.baidang_sanpham' ? ' active' : '' }}">
+                    <a href="{{ route('baocao.baidang_sanpham') }}" class="sidenav-link pr-1"><i class="sidenav-icon fab fa-product-hunt d-block"></i><div>Bài đăng sản phẩm</div></a>
                 </li>
 
                 <!-- Lan tỏa nhân viên mới -->
@@ -282,6 +282,11 @@
                 <!-- Bài đăng tuyển dụng -->
                 <li class="sidenav-item{{ $routeName == 'baocao.tuyendung' ? ' active' : '' }}">
                     <a href="{{ route('baocao.tuyendung') }}" class="sidenav-link pr-1"><i class="sidenav-icon fab fa-facebook-square d-block"></i><div>Bài đăng tuyển dụng</div></a>
+                </li>
+
+                <!-- Mười ngón -->
+                <li class="sidenav-item{{ $routeName == 'baocao.muoingon' ? ' active' : '' }}">
+                    <a href="{{ route('baocao.muoingon') }}" class="sidenav-link"><i class="sidenav-icon fas fa-keyboard d-block"></i><div>Mười ngón</div></a>
                 </li>
 
             </ul>
