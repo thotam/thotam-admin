@@ -246,6 +246,45 @@
             </li>
         @endif
 
+        <!-- Bỉm sữa -->
+        <li class="sidenav-item{{ strpos($routeName, 'bimsua') === 0 ? ' active open' : '' }}">
+            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-baby-carriage d-block"></i><div>Bỉm sữa</div></a>
+
+            <ul class="sidenav-menu">
+
+                <li class="sidenav-item{{ $routeName == 'bimsua.dangky' ? ' active' : '' }}">
+                    <a href="{{ route('bimsua.dangky') }}" class="sidenav-link"><i class="sidenav-icon fas fa-cart-plus d-block"></i><div>Đăng ký</div></a>
+                </li>
+
+                <li class="sidenav-item{{ $routeName == 'bimsua.baocao' ? ' active' : '' }}">
+                    <a href="{{ route('bimsua.baocao') }}" class="sidenav-link"><i class="sidenav-icon fas fa-file-upload d-block"></i><div>Báo cáo</div></a>
+                </li>
+
+                @if (optional(optional(Auth::user())->hr)->hasAnyPermission(["bimsua-turn", "bimsua-bim"]))
+                    <!-- Quản lý -->
+                    <li class="sidenav-item{{ strpos($routeName, 'bimsua.quanly') === 0 ? ' active open' : '' }}">
+                        <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-cogs d-block"></i><div>Quản lý</div></a>
+
+                        <ul class="sidenav-menu">
+
+                            @if (optional(optional(Auth::user())->hr)->hasAnyPermission(["bimsua-turn"]))
+                                <li class="sidenav-item{{ $routeName == 'bimsua.quanly.turn' ? ' active' : '' }}">
+                                    <a href="{{ route('bimsua.quanly.turn') }}" class="sidenav-link"><i class="sidenav-icon fas fa-sliders-h d-block"></i><div>Đợt đăng ký</div></a>
+                                </li>
+                            @endif
+
+                            @if (optional(optional(Auth::user())->hr)->hasAnyPermission(["bimsua-bim"]))
+                                <li class="sidenav-item{{ $routeName == 'bimsua.quanly.bim' ? ' active' : '' }}">
+                                    <a href="{{ route('bimsua.quanly.bim') }}" class="sidenav-link"><i class="sidenav-icon fas fa-baby d-block"></i><div>Tên bỉm</div></a>
+                                </li>
+                            @endif
+                        </ul>
+                    </li>
+                @endif
+
+            </ul>
+        </li>
+
         <!-- Báo cáo -->
         <li class="sidenav-item{{ strpos($routeName, 'baocao.') === 0 ? ' active open' : '' }}">
             <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-file-signature d-block"></i><div>Báo cáo</div></a>
