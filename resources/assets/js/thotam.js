@@ -1102,3 +1102,54 @@ $.fn.modal.Constructor.prototype._enforceFocus = function () {
             }.bind(this)
         );
 };
+
+//Livewire with file_pond
+window.thotam_file_pond = function (
+    thotam_el,
+    url,
+    token,
+    thotam_livewire_id,
+    menthod,
+    max_file = null
+) {
+    const TT_FilePond = FilePond.create(thotam_el, {
+        server: {
+            url: url,
+            headers: {
+                "X-CSRF-TOKEN": token,
+            },
+        },
+        maxFiles: max_file,
+        chunkUploads: true,
+        chunkForce: true,
+        chunkSize: 10485760,
+        credits: {
+            label: "CPC1 Hà Nội",
+            url: "https://cpc1hn.com.vn/",
+        },
+        onupdatefiles: function (file) {
+            isLoadingCheck(TT_FilePond, thotam_el, menthod);
+        },
+        onprocessfiles() {
+            isLoadingCheck(TT_FilePond, thotam_el, menthod);
+        },
+        onaddfilestart() {
+            thotam_livewire_id.set("FilePondHasUpload", true);
+        },
+    });
+};
+
+function isLoadingCheck(TT_FilePond, thotam_el, menthod) {
+    var isLoading =
+        TT_FilePond.getFiles().filter((x) => x.status !== 5).length !== 0;
+
+    if (!isLoading) {
+        Livewire.emit(
+            "FilePondUploadDone",
+            $(thotam_el).attr("name"),
+            TT_FilePond.getFiles().map((x) => x.serverId),
+            !!$(thotam_el).attr("multiple"),
+            menthod
+        );
+    }
+}
