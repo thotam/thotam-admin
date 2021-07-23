@@ -372,6 +372,11 @@ textarea.select2-search__field {
 [thotam-datatables] > tbody > tr > td .dropdown-item.waves-effect {
     display: block !important;
 }
+
+[thotam-datatables] > thead > tr > th:not(:last-child) {
+    text-align: center !important;
+}
+
 [thotam-datatables] > thead > tr > th.sorting_asc,
 [thotam-datatables] > thead > tr > th.sorting_desc,
 [thotam-datatables] > thead > tr > th.sorting {
@@ -679,4 +684,9 @@ body {
 
 .filepond--credits {
     display: none;
+}
+
+input[type="month"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-left: 0;
 }

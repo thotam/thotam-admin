@@ -659,6 +659,10 @@ $("[thotam_dt_date_filter]").on("change", function () {
     dt_draw_event_function();
 });
 
+$("[thotam_dt_month_filter]").on("change", function () {
+    dt_draw_event_function();
+});
+
 $("[thotam_dt_colum_filter]").on("change", function () {
     dt_draw_event_function();
 });
@@ -768,8 +772,13 @@ function thotam_rerender() {
                 $(this).attr("thotam-select2-rerender")
             );
 
-            $.each(array_data, function (key, value) {
-                html += "<option value='" + key + "'>" + value + "</option>";
+            array_data.forEach((element) => {
+                html +=
+                    "<option value='" +
+                    element.value +
+                    "'>" +
+                    element.text +
+                    "</option>";
             });
 
             $(this).html(html);
@@ -1104,6 +1113,8 @@ $.fn.modal.Constructor.prototype._enforceFocus = function () {
 };
 
 //Livewire with file_pond
+FilePond.registerPlugin(FilePondPluginFileValidateType);
+
 window.thotam_file_pond = function (
     thotam_el,
     url,
@@ -1128,22 +1139,27 @@ window.thotam_file_pond = function (
             url: "https://cpc1hn.com.vn/",
         },
         onupdatefiles: function (file) {
-            isLoadingCheck(TT_FilePond, thotam_el, menthod);
+            isLoadingCheck(TT_FilePond, thotam_el, menthod, thotam_livewire_id);
         },
         onprocessfiles() {
-            isLoadingCheck(TT_FilePond, thotam_el, menthod);
+            isLoadingCheck(TT_FilePond, thotam_el, menthod, thotam_livewire_id);
         },
         onaddfilestart() {
             thotam_livewire_id.set("FilePondHasUpload", true);
         },
+        onerror() {
+            thotam_livewire_id.set("FilePondHasUploadError", true);
+            $.unblockUI();
+        },
     });
 };
 
-function isLoadingCheck(TT_FilePond, thotam_el, menthod) {
+function isLoadingCheck(TT_FilePond, thotam_el, menthod, thotam_livewire_id) {
     var isLoading =
         TT_FilePond.getFiles().filter((x) => x.status !== 5).length !== 0;
 
     if (!isLoading) {
+        thotam_livewire_id.set("FilePondHasUploadError", false);
         Livewire.emit(
             "FilePondUploadDone",
             $(thotam_el).attr("name"),
@@ -1153,3 +1169,53 @@ function isLoadingCheck(TT_FilePond, thotam_el, menthod) {
         );
     }
 }
+
+//Livewire with currency
+window.thotam_currency = function (thotam_el) {
+    $(thotam_el)
+        .on("blur", function () {
+            $(this).formatCurrency({
+                colorize: true,
+                region: "vi-VN",
+                roundToDecimalPlace: 0,
+            });
+        })
+        .on("keyup", function () {
+            var e = window.event || e;
+            var keyUnicode = e.charCode || e.keyCode;
+            if (e !== undefined) {
+                switch (keyUnicode) {
+                    case 16:
+                        break; // Shift
+                    case 27:
+                        this.value = "";
+                        break; // Esc: clear entry
+                    case 35:
+                        break; // End
+                    case 36:
+                        break; // Home
+                    case 37:
+                        break; // cursor left
+                    case 38:
+                        break; // cursor up
+                    case 39:
+                        break; // cursor right
+                    case 40:
+                        break; // cursor down
+                    case 78:
+                        break; // N (Opera 9.63+ maps the "." from the number key section to the "N" key too!) (See: http://unixpapa.com/js/key.html search for ". Del")
+                    case 110:
+                        break; // . number block (Opera 9.63+ maps the "." from the number block to the "N" key (78) !!!)
+                    case 190:
+                        break; // .
+                    default:
+                        $(this).formatCurrency({
+                            colorize: true,
+                            region: "vi-VN",
+                            roundToDecimalPlace: -1,
+                            eventOnDecimalsEntered: true,
+                        });
+                }
+            }
+        });
+};
