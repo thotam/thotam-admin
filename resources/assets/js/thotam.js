@@ -1113,7 +1113,9 @@ $.fn.modal.Constructor.prototype._enforceFocus = function () {
 };
 
 //Livewire with file_pond
-FilePond.registerPlugin(FilePondPluginFileValidateType);
+if (typeof FilePond !== "undefined" && FilePond !== null) {
+    FilePond.registerPlugin(FilePondPluginFileValidateType);
+}
 
 window.thotam_file_pond = function (
     thotam_el,
