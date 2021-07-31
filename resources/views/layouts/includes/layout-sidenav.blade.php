@@ -290,6 +290,11 @@
             <a href="{{ route('donghanh_sechia') }}" class="sidenav-link pr-1"><i class="sidenav-icon fas fa-hand-holding-heart d-block"></i><div>Đồng hành Sẻ chia</div></a>
         </li>
 
+        <!-- Khai báo Y tế -->
+        <li class="sidenav-item{{ $routeName == 'khaibaoyte' ? ' active' : '' }}">
+            <a href="{{ route('khaibaoyte') }}" class="sidenav-link pr-1 text-success font-weight-bold"><i class="sidenav-icon fas fa-notes-medical d-block"></i><div>Khai báo Y tế</div></a>
+        </li>
+
         <!-- Báo cáo -->
         <li class="sidenav-item{{ strpos($routeName, 'baocao.') === 0 ? ' active open' : '' }}">
             <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-file-signature d-block"></i><div>Báo cáo</div></a>
