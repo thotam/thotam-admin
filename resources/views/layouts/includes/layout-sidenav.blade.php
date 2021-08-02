@@ -102,23 +102,24 @@
 
                 <ul class="sidenav-menu">
 
-                    <li class="sidenav-item{{ strpos($routeName, 'mkt.quanly.') === 0 ? ' active open' : '' }}">
-                        <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-users-cog d-block"></i><div>Quản lý</div></a>
+                    @if (optional(optional(Auth::user())->hr)->is_mkt_quanly || optional(optional(Auth::user())->hr)->hasAnyRole(["super-admin"]))
+                        <li class="sidenav-item{{ strpos($routeName, 'mkt.quanly.') === 0 ? ' active open' : '' }}">
+                            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-users-cog d-block"></i><div>Quản lý</div></a>
 
-                        <ul class="sidenav-menu">
+                            <ul class="sidenav-menu">
 
-                            <li class="sidenav-item{{ $routeName == 'mkt.quanly.canhan' ? ' active' : '' }}">
-                                <a href="{{ route('mkt.quanly.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
-                            </li>
+                                <li class="sidenav-item{{ $routeName == 'mkt.quanly.canhan' ? ' active' : '' }}">
+                                    <a href="{{ route('mkt.quanly.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
+                                </li>
 
-                            <li class="sidenav-item{{ $routeName == 'mkt.quanly.nhom' ? ' active' : '' }}">
-                                <a href="{{ route('mkt.quanly.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
-                            </li>
+                                <li class="sidenav-item{{ $routeName == 'mkt.quanly.nhom' ? ' active' : '' }}">
+                                    <a href="{{ route('mkt.quanly.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                                </li>
 
-                        </ul>
+                            </ul>
 
-                    </li>
-
+                        </li>
+                    @endif
 
                     <li class="sidenav-item{{ strpos($routeName, 'mkt.congviec.') === 0 ? ' active open' : '' }}">
                         <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-cogs d-block"></i><div>Công việc</div></a>
