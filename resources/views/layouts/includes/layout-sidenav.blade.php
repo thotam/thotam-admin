@@ -286,6 +286,16 @@
             </ul>
         </li>
 
+        <!-- Cây MKT nở hoa -->
+        <li class="sidenav-item{{ $routeName == 'baocao_hd_mkt' ? ' active' : '' }}">
+            <a href="{{ route('baocao_hd_mkt') }}" class="sidenav-link pr-1"><i class="sidenav-icon fas fa-chart-line d-block"></i><div>Cây MKT nở hoa</div></a>
+        </li>
+
+        <!-- Email khách hàng -->
+        <li class="sidenav-item{{ $routeName == 'email_data' ? ' active' : '' }}">
+            <a href="{{ route('email_data') }}" class="sidenav-link pr-1"><i class="sidenav-icon fas fa-hand-holding-heart d-block"></i><div>Email khách hàng</div></a>
+        </li>
+
         <!-- Đồng hành Sẻ chia -->
         <li class="sidenav-item{{ $routeName == 'donghanh_sechia' ? ' active' : '' }}">
             <a href="{{ route('donghanh_sechia') }}" class="sidenav-link pr-1"><i class="sidenav-icon fas fa-hand-holding-heart d-block"></i><div>Đồng hành Sẻ chia</div></a>
@@ -295,6 +305,19 @@
         <li class="sidenav-item{{ $routeName == 'khaibaoyte' ? ' active' : '' }}">
             <a href="{{ route('khaibaoyte') }}" class="sidenav-link pr-1 text-success font-weight-bold"><i class="sidenav-icon fas fa-notes-medical d-block"></i><div>Khai báo Y tế</div></a>
         </li>
+
+        <!-- Thông tin Tiêm Vaccine -->
+        <li class="sidenav-item{{ $routeName == 'tiem_vaccine' ? ' active' : '' }}">
+            <a href="{{ route('tiem_vaccine') }}" class="sidenav-link pr-1 text-success font-weight-bold"><i class="sidenav-icon fas fa-syringe d-block"></i><div>Thông tin Tiêm Vaccine</div></a>
+        </li>
+
+
+        @if (optional(optional(Auth::user())->hr)->hasAnyPermission(["view-form-tiem-pfizer", "add-form-tiem-pfizer", "edit-form-tiem-pfizer", "duyet-form-tiem-pfizer", "delete-form-tiem-pfizer"]))
+        <!-- Thông tin Tiêm Vaccine Pfizer-->
+            <li class="sidenav-item{{ $routeName == 'tiem_pfizer' ? ' active' : '' }}">
+                <a href="{{ route('tiem_pfizer') }}" class="sidenav-link pr-1 text-success font-weight-bold"><i class="sidenav-icon fas fa-syringe d-block"></i><div>Data ĐK Tiêm Pfizer</div></a>
+            </li>
+        @endif
 
         <!-- Báo cáo -->
         <li class="sidenav-item{{ strpos($routeName, 'baocao.') === 0 ? ' active open' : '' }}">
