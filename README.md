@@ -55,6 +55,12 @@ npm run dev
 php artisan queue:table
 ```
 
+## Publish the DataTables assets
+
+```php
+php artisan vendor:publish --tag=datatables-buttons
+```
+
 ## Update Mailer in .env
 
 ```php
