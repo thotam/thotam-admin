@@ -1,1 +1,0 @@
-@include('datatables::filters.string')
