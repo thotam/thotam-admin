@@ -43,6 +43,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('thotam-mkt-kpi:generate-kpi-canhan')->dailyAt('00:13');
         $schedule->command('thotam-mkt-kpi:generate-kpi-nhom')->dailyAt('05:13');
 
+        $schedule->command('thotam-file-library:clean-public-disk')->everyTenMinutes();
+
         $schedule->command('queue:restart')->hourly();
         $schedule->command('queue:retry all')->everySixHours();
         $schedule->command('queue:work --sansdaemon --sleep 3 --tries=10')->everyMinute()->withoutOverlapping(15);
