@@ -43,9 +43,15 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-                Route::middleware(['web', 'auth', 'CheckAccount', 'CheckHr', 'CheckInfo'])
+            Route::middleware(['web', 'auth', 'CheckAccount', 'CheckHr', 'CheckInfo'])
                 ->namespace($this->namespace)
+                ->domain('beta.' . env('APP_DOMAIN', 'cpc1hn.com.vn'))
                 ->group(base_path('routes/web.php'));
+
+            Route::middleware(['web'])
+                ->namespace($this->namespace)
+                ->domain(env('APP_DOMAIN', 'cpc1hn.com.vn'))
+                ->group(base_path('routes/main_web.php'));
         });
     }
 
