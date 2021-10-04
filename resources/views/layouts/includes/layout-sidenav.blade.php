@@ -247,6 +247,26 @@
             </li>
         @endif
 
+        <!-- Poster -->
+        <li class="sidenav-item{{ strpos($routeName, 'poster.3d') === 0 ? ' active open' : '' }}">
+            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fab fa-unity d-block"></i><div>Poster - 3D</div></a>
+
+            <ul class="sidenav-menu">
+
+                <li class="sidenav-item{{ $routeName == 'poster.3d.canhan' ? ' active' : '' }}">
+                    <a href="{{ route('poster.3d.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
+                </li>
+
+                <li class="sidenav-item{{ $routeName == 'poster.3d.nhom' ? ' active' : '' }}">
+                    <a href="{{ route('poster.3d.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                </li>
+
+                <li class="sidenav-item{{ $routeName == 'poster.3d.bangiao' ? ' active' : '' }}">
+                    <a href="{{ route('poster.3d.bangiao') }}" class="sidenav-link"><i class="sidenav-icon fas fa-dolly-flatbed d-block"></i><div>Bàn giao</div></a>
+                </li>
+            </ul>
+        </li>
+
         <!-- Bỉm sữa -->
         <li class="sidenav-item{{ strpos($routeName, 'bimsua') === 0 ? ' active open' : '' }}">
             <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-baby-carriage d-block"></i><div>Bỉm sữa</div></a>
