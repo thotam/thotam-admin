@@ -27,7 +27,8 @@
         "hisorange/browser-detect": "^4.3",
         "wildside/userstamps": "^2.1",
         "yajra/laravel-datatables": "1.5",
-        "queueworker/sansdaemon": "^1.2"
+        "queueworker/sansdaemon": "^1.2",
+        "tecnickcom/tcpdf": "^6.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
