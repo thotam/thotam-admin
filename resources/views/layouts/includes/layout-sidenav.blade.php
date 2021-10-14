@@ -248,22 +248,53 @@
         @endif
 
         <!-- Poster -->
-        <li class="sidenav-item{{ strpos($routeName, 'poster.3d') === 0 ? ' active open' : '' }}">
-            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fab fa-unity d-block"></i><div>Poster - 3D</div></a>
+        <li class="sidenav-item{{ strpos($routeName, 'poster') === 0 ? ' active open' : '' }}">
+            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-images d-block"></i><div>Poster</div></a>
 
             <ul class="sidenav-menu">
 
-                <li class="sidenav-item{{ $routeName == 'poster.3d.canhan' ? ' active' : '' }}">
-                    <a href="{{ route('poster.3d.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
+                <!-- Poster OTC -->
+                <li class="sidenav-item{{ strpos($routeName, 'poster.otc') === 0 ? ' active open' : '' }}">
+                    <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-map-marked-alt d-block"></i><div>Poster - OTC</div></a>
+
+                    <ul class="sidenav-menu">
+
+                        <li class="sidenav-item{{ $routeName == 'poster.otc.canhan' ? ' active' : '' }}">
+                            <a href="{{ route('poster.otc.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
+                        </li>
+
+                        <li class="sidenav-item{{ $routeName == 'poster.otc.nhom' ? ' active' : '' }}">
+                            <a href="{{ route('poster.otc.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                        </li>
+
+                        @if ($home_hr->hasAnyPermission(["edit-trathuong-poster-otc"]))
+                            <li class="sidenav-item{{ $routeName == 'poster.otc.trathuong' ? ' active' : '' }}">
+                                <a href="{{ route('poster.otc.trathuong') }}" class="sidenav-link"><i class="sidenav-icon fas fa-money-check-alt d-block"></i><div>Trả thưởng</div></a>
+                            </li>
+                        @endif
+                    </ul>
                 </li>
 
-                <li class="sidenav-item{{ $routeName == 'poster.3d.nhom' ? ' active' : '' }}">
-                    <a href="{{ route('poster.3d.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                <!-- Poster 3D -->
+                <li class="sidenav-item{{ strpos($routeName, 'poster.3d') === 0 ? ' active open' : '' }}">
+                    <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fab fa-unity d-block"></i><div>Poster - 3D</div></a>
+
+                    <ul class="sidenav-menu">
+
+                        <li class="sidenav-item{{ $routeName == 'poster.3d.canhan' ? ' active' : '' }}">
+                            <a href="{{ route('poster.3d.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
+                        </li>
+
+                        <li class="sidenav-item{{ $routeName == 'poster.3d.nhom' ? ' active' : '' }}">
+                            <a href="{{ route('poster.3d.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                        </li>
+
+                        <li class="sidenav-item{{ $routeName == 'poster.3d.bangiao' ? ' active' : '' }}">
+                            <a href="{{ route('poster.3d.bangiao') }}" class="sidenav-link"><i class="sidenav-icon fas fa-dolly-flatbed d-block"></i><div>Bàn giao</div></a>
+                        </li>
+                    </ul>
                 </li>
 
-                <li class="sidenav-item{{ $routeName == 'poster.3d.bangiao' ? ' active' : '' }}">
-                    <a href="{{ route('poster.3d.bangiao') }}" class="sidenav-link"><i class="sidenav-icon fas fa-dolly-flatbed d-block"></i><div>Bàn giao</div></a>
-                </li>
             </ul>
         </li>
 
