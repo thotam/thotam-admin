@@ -270,9 +270,21 @@
                             <a href="{{ route('poster.otc.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
                         </li>
 
+                        @if ($home_hr->hasAnyPermission(["thongke-poster-otc"]) || $home_hr->is_mkt_thanhvien || $home_hr->is_mkt_quanly)
+                            <li class="sidenav-item{{ $routeName == 'poster.otc.thongke' ? ' active' : '' }}">
+                                <a href="{{ route('poster.otc.thongke') }}" class="sidenav-link"><i class="sidenav-icon fas fa-file-excel d-block"></i><div>Thống kê</div></a>
+                            </li>
+                        @endif
+
                         @if ($home_hr->hasAnyPermission(["edit-trathuong-poster-otc"]))
                             <li class="sidenav-item{{ $routeName == 'poster.otc.trathuong' ? ' active' : '' }}">
                                 <a href="{{ route('poster.otc.trathuong') }}" class="sidenav-link"><i class="sidenav-icon fas fa-money-check-alt d-block"></i><div>Trả thưởng</div></a>
+                            </li>
+                        @endif
+
+                        @if ($home_hr->hasAnyPermission(["view-thietke-poster-otc"]) || $home_hr->is_mkt_thanhvien || $home_hr->is_mkt_quanly)
+                            <li class="sidenav-item{{ $routeName == 'poster.otc.doitac' ? ' active' : '' }}">
+                                <a href="{{ route('poster.otc.doitac') }}" class="sidenav-link"><i class="sidenav-icon fas fa-fill-drip d-block"></i><div>Đối tác</div></a>
                             </li>
                         @endif
                     </ul>
