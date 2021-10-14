@@ -1,4 +1,7 @@
 <?php $routeName = Route::currentRouteName(); ?>
+@php
+    $home_hr = Auth::user()->hr;
+@endphp
 
 <div id="layout-sidenav" class="{{ isset($layout_sidenav_horizontal) ? 'layout-sidenav-horizontal sidenav-horizontal container-p-x flex-grow-0' : 'layout-sidenav sidenav-vertical' }} sidenav bg-dark">
 
