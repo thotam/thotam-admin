@@ -359,7 +359,7 @@
 
         <!-- Email khách hàng -->
         <li class="sidenav-item{{ $routeName == 'email_data' ? ' active' : '' }}">
-            <a href="{{ route('email_data') }}" class="sidenav-link pr-1"><i class="sidenav-icon fas fa-hand-holding-heart d-block"></i><div>Email khách hàng</div></a>
+            <a href="{{ route('email_data') }}" class="sidenav-link pr-1"><i class="sidenav-icon fas fa-envelope-open-text d-block"></i><div>Email khách hàng</div></a>
         </li>
 
         <!-- Đồng hành Sẻ chia -->
