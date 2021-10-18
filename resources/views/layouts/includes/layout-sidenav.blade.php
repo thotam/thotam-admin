@@ -28,12 +28,12 @@
         </li>
 
         <!-- Admin -->
-        @if (Auth::user()->hr->hasAnyRole(["super-admin", "admin", "admin-product"]))
+        @if ($home_hr->hasAnyRole(["super-admin", "admin", "admin-product"]))
             <li class="sidenav-item{{ strpos($routeName, 'admin.') === 0 ? ' active open' : '' }}">
                 <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-users-cog d-block"></i><div>Admin</div></a>
 
                 <ul class="sidenav-menu">
-                    @if (Auth::user()->hr->hasAnyRole(["super-admin", "admin"]))
+                    @if ($home_hr->hasAnyRole(["super-admin", "admin"]))
                         <li class="sidenav-item{{ strpos($routeName, 'admin.member.') === 0 ? ' active open' : '' }}">
                             <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-user-friends d-block"></i><div>Thành viên</div></a>
 
@@ -71,7 +71,7 @@
                         </li>
                     @endif
 
-                    @if (Auth::user()->hr->hasAnyRole(["super-admin", "admin", "admin-product"]))
+                    @if ($home_hr->hasAnyRole(["super-admin", "admin", "admin-product"]))
                         <!-- Admin Sản phẩm -->
                         <li class="sidenav-item{{ $routeName == 'admin.product' ? ' active' : '' }}">
                             <a href="{{ route('admin.product') }}" class="sidenav-link pr-1"><i class="sidenav-icon fab fa-product-hunt d-block"></i><div>Sản phẩm</div></a>
@@ -367,21 +367,33 @@
             <a href="{{ route('donghanh_sechia') }}" class="sidenav-link pr-1"><i class="sidenav-icon fas fa-hand-holding-heart d-block"></i><div>Đồng hành Sẻ chia</div></a>
         </li>
 
+        {{-- <!-- Trung thu -->
+        <li class="sidenav-item{{ $routeName == 'trung_thu' ? ' active' : '' }}">
+            <a href="{{ route('trung_thu') }}" class="sidenav-link pr-1 text-orange font-weight-bold"><i class="sidenav-icon fas fa-star d-block"></i><div>Trung thu</div></a>
+        </li> --}}
+
         <!-- Khai báo Y tế -->
         <li class="sidenav-item{{ $routeName == 'khaibaoyte' ? ' active' : '' }}">
             <a href="{{ route('khaibaoyte') }}" class="sidenav-link pr-1 text-success font-weight-bold"><i class="sidenav-icon fas fa-notes-medical d-block"></i><div>Khai báo Y tế</div></a>
         </li>
 
-        <!-- Thông tin Tiêm Vaccine -->
+        {{-- <!-- Thông tin Tiêm Vaccine -->
         <li class="sidenav-item{{ $routeName == 'tiem_vaccine' ? ' active' : '' }}">
             <a href="{{ route('tiem_vaccine') }}" class="sidenav-link pr-1 text-success font-weight-bold"><i class="sidenav-icon fas fa-syringe d-block"></i><div>Thông tin Tiêm Vaccine</div></a>
-        </li>
+        </li> --}}
 
 
-        @if (optional(optional(Auth::user())->hr)->hasAnyPermission(["view-form-tiem-pfizer", "add-form-tiem-pfizer", "edit-form-tiem-pfizer", "duyet-form-tiem-pfizer", "delete-form-tiem-pfizer"]))
+        {{-- @if (optional(optional(Auth::user())->hr)->hasAnyPermission(["view-form-tiem-pfizer", "add-form-tiem-pfizer", "edit-form-tiem-pfizer", "duyet-form-tiem-pfizer", "delete-form-tiem-pfizer"]))
         <!-- Thông tin Tiêm Vaccine Pfizer-->
             <li class="sidenav-item{{ $routeName == 'tiem_pfizer' ? ' active' : '' }}">
                 <a href="{{ route('tiem_pfizer') }}" class="sidenav-link pr-1 text-success font-weight-bold"><i class="sidenav-icon fas fa-syringe d-block"></i><div>Data ĐK Tiêm Pfizer</div></a>
+            </li>
+        @endif --}}
+
+        @if (optional(optional(Auth::user())->hr)->hasAnyPermission(["view-form-tiem-con-em", "add-form-tiem-con-em", "edit-form-tiem-con-em", "duyet-form-tiem-con-em", "delete-form-tiem-con-em"]))
+        <!-- Thông tin Tiêm Vaccine Pfizer-->
+            <li class="sidenav-item{{ $routeName == 'tiem_con_em' ? ' active' : '' }}">
+                <a href="{{ route('tiem_con_em') }}" class="sidenav-link pr-1 text-success font-weight-bold"><i class="sidenav-icon fas fa-syringe d-block"></i><div>Data ĐK Tiêm cho con em</div></a>
             </li>
         @endif
 
