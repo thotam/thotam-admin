@@ -397,6 +397,11 @@
             </li>
         @endif
 
+        <!-- Upharma -->
+        <li class="sidenav-item{{ $routeName == 'upharma.khaosat' ? ' active' : '' }}">
+            <a href="{{ route('upharma.khaosat') }}" class="sidenav-link pr-1 text-success font-weight-bold"><i class="sidenav-icon fas fa-clinic-medical d-block"></i><div>Upharma - Địa điểm</div></a>
+        </li>
+
         <!-- Báo cáo -->
         <li class="sidenav-item{{ strpos($routeName, 'baocao.') === 0 ? ' active open' : '' }}">
             <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-file-signature d-block"></i><div>Báo cáo</div></a>
