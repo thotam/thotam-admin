@@ -991,6 +991,13 @@ window.thotam_filestyle = function (thotam_el, thotam_icon = "fas fa-file") {
     });
 };
 
+//inputSpinner
+window.input_spinner = function (thotam_el, buttonsClass = null) {
+    $(thotam_el).inputSpinner({
+        buttonsClass: !!buttonsClass ? buttonsClass : "btn-outline-secondary",
+    });
+};
+
 //Livewire with perfect_scrollbar
 window.thotam_perfect_scrollbar = function (thotam_el) {
     new PerfectScrollbar(thotam_el, {

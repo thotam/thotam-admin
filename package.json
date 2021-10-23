@@ -40,6 +40,7 @@
         "bootstrap-daterangepicker": "~3.1.0",
         "bootstrap-duallistbox": "~3.0.6",
         "bootstrap-filestyle2": "~2.1.0",
+        "bootstrap-input-spinner": "^3.1.7",
         "bootstrap-markdown": "~2.10.0",
         "bootstrap-material-datetimepicker": "~2.7.3",
         "bootstrap-maxlength": "~1.10.0",
