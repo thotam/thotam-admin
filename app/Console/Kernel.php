@@ -48,6 +48,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('thotam-icpc1hn-api:khach-hang-sync')->dailyAt('03:30')->withoutOverlapping(15);
         $schedule->command('thotam-icpc1hn-api:khach-hang-sync')->dailyAt('15:30')->withoutOverlapping(15);
 
+        $schedule->command('thotam-hoithao-etc:nhacnho-mail')->everyTenMinutes();
+
         $schedule->command('queue:restart')->hourly();
         $schedule->command('queue:retry all')->everySixHours();
         $schedule->command('queue:work --sansdaemon --sleep 3 --tries=10')->everyMinute()->withoutOverlapping(15);
