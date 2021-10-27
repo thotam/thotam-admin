@@ -1180,7 +1180,7 @@ function isLoadingCheck(TT_FilePond, thotam_el, menthod, thotam_livewire_id) {
 }
 
 //Livewire with currency
-window.thotam_currency = function (thotam_el) {
+window.thotam_currency = function (thotam_el, thotam_livewire_id) {
     $(thotam_el)
         .on("blur", function () {
             $(this).formatCurrency({
@@ -1226,5 +1226,11 @@ window.thotam_currency = function (thotam_el) {
                         });
                 }
             }
+        })
+        .on("change", function () {
+            thotam_livewire_id.set(
+                $(thotam_el).attr("thotam:model"),
+                $(thotam_el).val()
+            );
         });
 };
