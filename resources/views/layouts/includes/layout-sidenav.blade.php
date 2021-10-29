@@ -287,6 +287,21 @@
                                 <a href="{{ route('poster.otc.doitac') }}" class="sidenav-link"><i class="sidenav-icon fas fa-fill-drip d-block"></i><div>Đối tác</div></a>
                             </li>
                         @endif
+
+                        @if ($home_hr->hasAnyPermission(["view-checkanh-poster-otc", "check-checkanh-poster-otc"]) || $home_hr->is_mkt_thanhvien || $home_hr->is_mkt_quanly)
+                            <li class="sidenav-item{{ strpos($routeName, 'poster.otc.checkanh') === 0 ? ' active open' : '' }}">
+                                <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-images d-block"></i><div>Check Ảnh</div></a>
+
+                                <ul class="sidenav-menu">
+                                    <li class="sidenav-item{{ $routeName == 'poster.otc.checkanh.landau' ? ' active' : '' }}">
+                                        <a href="{{ route('poster.otc.checkanh.landau') }}" class="sidenav-link"><i class="sidenav-icon fas fa-check-square d-block"></i><div>Lần đầu</div></a>
+                                    </li>
+                                    <li class="sidenav-item{{ $routeName == 'poster.otc.checkanh.dinhky' ? ' active' : '' }}">
+                                        <a href="{{ route('poster.otc.checkanh.dinhky') }}" class="sidenav-link"><i class="sidenav-icon fas fa-check-double d-block"></i><div>Định kỳ</div></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
                     </ul>
                 </li>
 
