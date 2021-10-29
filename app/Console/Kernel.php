@@ -52,10 +52,12 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('thotam-poster-otc:poster-update-place-id')->dailyAt("01:18");
         $schedule->command('thotam-poster-otc:poster-check-landau')->dailyAt("02:18");
+		$schedule->command('thotam-poster-otc:poster-check-dinhky')->dailyAt("03:18");
 
         $schedule->command('queue:restart')->hourly();
         $schedule->command('queue:retry all')->everySixHours();
         $schedule->command('queue:work --sansdaemon --sleep 3 --tries=10')->everyMinute()->withoutOverlapping(15);
+        $schedule->command('queue:work --sansdaemon --sleep 2 --tries=5')->everyMinute()->withoutOverlapping(15);
     }
 
     /**
