@@ -328,6 +328,29 @@
             </ul>
         </li>
 
+        <!-- Hội thảo -->
+        <li class="sidenav-item{{ strpos($routeName, 'hoithao.etc') === 0 ? ' active open' : '' }}">
+            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-chalkboard d-block"></i><div>Hội thảo</div></a>
+
+            <ul class="sidenav-menu">
+
+                <li class="sidenav-item{{ $routeName == 'hoithao.etc.canhan' ? ' active' : '' }}">
+                    <a href="{{ route('hoithao.etc.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
+                </li>
+
+                <li class="sidenav-item{{ $routeName == 'hoithao.etc.nhom' ? ' active' : '' }}">
+                    <a href="{{ route('hoithao.etc.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                </li>
+
+                @if ($home_hr->hasAnyPermission(["hoithao-etc-quanly-nguoiduyet"]))
+                    <li class="sidenav-item{{ $routeName == 'hoithao.etc.nguoiduyet' ? ' active' : '' }}">
+                        <a href="{{ route('hoithao.etc.nguoiduyet') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>QL Người duyệt</div></a>
+                    </li>
+                @endif
+
+            </ul>
+        </li>
+
         <!-- Bỉm sữa -->
         <li class="sidenav-item{{ strpos($routeName, 'bimsua') === 0 ? ' active open' : '' }}">
             <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-baby-carriage d-block"></i><div>Bỉm sữa</div></a>
