@@ -838,17 +838,29 @@ window.thotam_blueimp = function (thotam_el) {
         $(thotam_el)
             .find("[thotam-blueimp-carousel]")
             .each(function (e) {
-                blue_data.push({
-                    type: $(this).attr("mine-type"),
-                    href: $(this).attr("href"),
-                    thumbnail: $(this).attr("thumbnail"),
-                    poster: $(this).attr("thumbnail"),
-                });
+                if ($(this).attr("mine-type") == "vimeo") {
+                    blue_data.push({
+                        type: "text/html",
+                        href: $(this).attr("href"),
+                        thumbnail: $(this).attr("thumbnail"),
+                        poster: $(this).attr("thumbnail"),
+                        vimeo: $(this).attr("vimeo-id"),
+                    });
+                } else {
+                    blue_data.push({
+                        type: $(this).attr("mine-type"),
+                        href: $(this).attr("href"),
+                        thumbnail: $(this).attr("thumbnail"),
+                        poster: $(this).attr("thumbnail"),
+                    });
+                }
             });
 
         blueimpGallery(blue_data, {
             container: thotam_el,
             carousel: true,
+            fullscreen: false,
+            videoPlaysInline: false,
         });
     }, 250);
 };
@@ -1014,6 +1026,95 @@ window.thotam_perfect_scrollbar_scroll = function () {
                 this_scroll.scrollHeight - this_scroll.clientHeight;
         }, 300);
     });
+};
+
+//thotam_gallery lightGallery
+window.thotam_gallery = function (element) {
+    const inlineGallery = lightGallery(
+        $(element).children("[thotam-gallery-data]")[0],
+        {
+            hash: false,
+            licenseKey: "B27E0AC6-68224C21-9D2C4A8F-42E0CF0B",
+            closable: false,
+            download: false,
+            flipHorizontal: false,
+            flipVertical: false,
+            zoom: true,
+            slideShowInterval: 10000,
+            slideShowAutoplay:
+                !!$(element).attr("thotam-slideShowAutoplay") &&
+                $(element).attr("thotam-slideShowAutoplay") == "true"
+                    ? true
+                    : false,
+            videoMaxSize: "1920-1080",
+            fullScreen:
+                !!$(element).attr("thotam-fullScreen") &&
+                $(element).attr("thotam-fullScreen") == "true"
+                    ? true
+                    : false,
+            showMaximizeIcon: true,
+            autoplayFirstVideo: false,
+            container: $(element),
+            plugins: [
+                lgVideo,
+                lgZoom,
+                lgThumbnail,
+                lgFullscreen,
+                lgAutoplay,
+                lgRotate,
+            ],
+            thumbWidth: 60,
+            thumbHeight: "40px",
+            thumbMargin: 4,
+            height: "100px",
+            vimeoPlayerParams: {
+                muted: false,
+            },
+        }
+    );
+
+    setTimeout(() => {
+        inlineGallery.openGallery();
+    }, 200);
+
+    var __trigger = false;
+    $(element)
+        .children("[thotam-gallery-data]")[0]
+        .addEventListener("lgContainerResize", (event) => {
+            if (inlineGallery.$container.hasClass("lg-inline")) {
+                if (
+                    $(inlineGallery.$container.selector)
+                        .closest("div.modal-dialog.modal-dialog-centered")
+                        .hasClass("inline-gallery-maximize")
+                ) {
+                    $(inlineGallery.$container.selector)
+                        .closest("div.modal-dialog.modal-dialog-centered")
+                        .removeClass("inline-gallery-maximize");
+                    if (__trigger) {
+                        __trigger = !__trigger;
+                        setTimeout(() => {
+                            //window.dispatchEvent(new Event("resize"));
+                        }, 200);
+                    }
+                }
+            } else {
+                if (
+                    !$(inlineGallery.$container.selector)
+                        .closest("div.modal-dialog.modal-dialog-centered")
+                        .hasClass("inline-gallery-maximize")
+                ) {
+                    $(inlineGallery.$container.selector)
+                        .closest("div.modal-dialog.modal-dialog-centered")
+                        .addClass("inline-gallery-maximize");
+                    if (!__trigger) {
+                        __trigger = !__trigger;
+                        setTimeout(() => {
+                            //window.dispatchEvent(new Event("resize"));
+                        }, 200);
+                    }
+                }
+            }
+        });
 };
 
 //Livewire with ckeditor

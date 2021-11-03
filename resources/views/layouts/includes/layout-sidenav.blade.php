@@ -218,9 +218,9 @@
                                 <a href="{{ route('mkt.kpi.bangvang') }}" class="sidenav-link text-warning"><i class="sidenav-icon fas fa-crown d-block"></i><div>Bảng vàng</div></a>
                             </li>
 
-                            <li class="sidenav-item{{ $routeName == 'mkt.kpi.daotao' ? ' active' : '' }}">
+                            {{-- <li class="sidenav-item{{ $routeName == 'mkt.kpi.daotao' ? ' active' : '' }}">
                                 <a href="{{ route('mkt.kpi.daotao') }}" class="sidenav-link"><i class="sidenav-icon fab fa-leanpub d-block"></i><div>Đào tạo</div></a>
-                            </li>
+                            </li> --}}
 
                             <li class="sidenav-item{{ $routeName == 'mkt.kpi.thaido' ? ' active' : '' }}">
                                 <a href="{{ route('mkt.kpi.thaido') }}" class="sidenav-link"><i class="sidenav-icon fas fa-thumbs-up d-block"></i><div>Thái độ</div></a>
@@ -244,6 +244,22 @@
 
                         </ul>
 
+                    </li>
+
+                    <li class="sidenav-item{{ strpos($routeName, 'mkt.daotao.') === 0 ? ' active open' : '' }}">
+                        <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fab fa-leanpub d-block"></i><div>Đào tạo</div></a>
+
+                        <ul class="sidenav-menu">
+
+                            <li class="sidenav-item{{ $routeName == 'mkt.daotao.kiemtra' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.daotao.kiemtra') }}" class="sidenav-link"><i class="sidenav-icon fas fa-feather-alt d-block"></i><div>Kiểm tra</div></a>
+                            </li>
+
+                            <li class="sidenav-item{{ $routeName == 'mkt.daotao.lichdaotao' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.daotao.lichdaotao') }}" class="sidenav-link"><i class="sidenav-icon fas fa-tasks d-block"></i><div>Lịch đào tạo</div></a>
+                            </li>
+
+                        </ul>
                     </li>
 
                 </ul>

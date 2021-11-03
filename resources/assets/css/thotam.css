@@ -701,3 +701,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         max-width: 43.5rem;
     }
 }
+
+.inline-gallery-maximize {
+    transform: none !important;
+    -webkit-transform: none !important;
+}
+
+.inline-gallery-container {
+    width: 100%;
+    padding-top: 70%;
+    background-color: rgb(44, 22, 22);
+}
