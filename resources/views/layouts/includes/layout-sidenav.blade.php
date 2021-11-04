@@ -262,6 +262,10 @@
                         </ul>
                     </li>
 
+					<li class="sidenav-item{{ $routeName == 'mkt.rate.mkt' ? ' active' : '' }}">
+                        <a href="{{ route('mkt.rate.mkt') }}" class="sidenav-link"><i class="sidenav-icon fas fa-kiss-wink-heart d-block"></i><div>Love Index</div></a>
+                    </li>
+
                 </ul>
             </li>
         @endif
