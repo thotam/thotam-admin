@@ -266,6 +266,12 @@
                         <a href="{{ route('mkt.rate.mkt') }}" class="sidenav-link"><i class="sidenav-icon fas fa-kiss-wink-heart d-block"></i><div>Love Index</div></a>
                     </li>
 
+                    @if ($home_hr->hasAnyRole(["super-admin"]) || $home_hr->is_mkt_quanly)
+                        <li class="sidenav-item{{ $routeName == 'mkt.rate.mkt_out' ? ' active' : '' }}">
+                            <a href="{{ route('mkt.rate.mkt_out') }}" class="sidenav-link"><i class="sidenav-icon fas fa-kiss-wink-heart d-block"></i><div>L.I Outcoming</div></a>
+                        </li>
+                    @endif
+
                 </ul>
             </li>
         @endif
