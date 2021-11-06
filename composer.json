@@ -17,6 +17,7 @@
     "require": {
         "awobaz/compoships": "^2.1",
         "php": "^7.3|^8.0",
+        "arifhp86/laravel-clear-expired-cache-file": "^0.0.4",
         "endroid/qr-code": "^4.3",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
