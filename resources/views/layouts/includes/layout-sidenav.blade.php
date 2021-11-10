@@ -176,7 +176,7 @@
                         </li>
                     @endif
 
-                    <li class="sidenav-item{{ strpos($routeName, 'mkt.kpi.') === 0 && strpos($routeName, 'mkt.kpi.ketqua.') != 0 ? ' active open' : '' }}">
+                    <li class="sidenav-item{{ strpos($routeName, 'mkt.kpi.') === 0 && strpos($routeName, 'mkt.kpi.ketqua.') !== 0 ? ' active open' : '' }}">
                         <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-medal d-block"></i><div>OKR-KPI</div></a>
 
                         <ul class="sidenav-menu">
