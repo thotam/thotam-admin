@@ -176,7 +176,7 @@
                         </li>
                     @endif
 
-                    <li class="sidenav-item{{ strpos($routeName, 'mkt.kpi.') === 0 ? ' active open' : '' }}">
+                    <li class="sidenav-item{{ strpos($routeName, 'mkt.kpi.') === 0 && strpos($routeName, 'mkt.kpi.ketqua.') != 0 ? ' active open' : '' }}">
                         <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-medal d-block"></i><div>OKR-KPI</div></a>
 
                         <ul class="sidenav-menu">
@@ -218,7 +218,7 @@
                                 <a href="{{ route('mkt.kpi.bangvang') }}" class="sidenav-link text-warning"><i class="sidenav-icon fas fa-crown d-block"></i><div>Bảng vàng</div></a>
                             </li>
 
-                            {{-- <li class="sidenav-item{{ $routeName == 'mkt.kpi.daotao' ? ' active' : '' }}">
+							{{-- <li class="sidenav-item{{ $routeName == 'mkt.kpi.daotao' ? ' active' : '' }}">
                                 <a href="{{ route('mkt.kpi.daotao') }}" class="sidenav-link"><i class="sidenav-icon fab fa-leanpub d-block"></i><div>Đào tạo</div></a>
                             </li> --}}
 
@@ -226,25 +226,11 @@
                                 <a href="{{ route('mkt.kpi.thaido') }}" class="sidenav-link"><i class="sidenav-icon fas fa-thumbs-up d-block"></i><div>Thái độ</div></a>
                             </li>
 
-                            <li class="sidenav-item{{ strpos($routeName, 'mkt.kpi.ketqua.') === 0 ? ' active open' : '' }}">
-                                <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-poll d-block"></i><div>Kết quả</div></a>
-
-                                <ul class="sidenav-menu">
-
-                                    <li class="sidenav-item{{ $routeName == 'mkt.kpi.ketqua.canhan' ? ' active' : '' }}">
-                                        <a href="{{ route('mkt.kpi.ketqua.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
-                                    </li>
-
-                                    <li class="sidenav-item{{ $routeName == 'mkt.kpi.ketqua.nhom' ? ' active' : '' }}">
-                                        <a href="{{ route('mkt.kpi.ketqua.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
-                                    </li>
-
-                                </ul>
-                            </li>
 
                         </ul>
 
                     </li>
+
 
                     <li class="sidenav-item{{ strpos($routeName, 'mkt.daotao.') === 0 ? ' active open' : '' }}">
                         <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fab fa-leanpub d-block"></i><div>Đào tạo</div></a>
@@ -262,7 +248,7 @@
                         </ul>
                     </li>
 
-					<li class="sidenav-item{{ $routeName == 'mkt.rate.mkt' ? ' active' : '' }}">
+                    <li class="sidenav-item{{ $routeName == 'mkt.rate.mkt' ? ' active' : '' }}">
                         <a href="{{ route('mkt.rate.mkt') }}" class="sidenav-link"><i class="sidenav-icon fas fa-kiss-wink-heart d-block"></i><div>Love Index</div></a>
                     </li>
 
@@ -271,6 +257,22 @@
                             <a href="{{ route('mkt.rate.mkt_out') }}" class="sidenav-link"><i class="sidenav-icon fas fa-kiss-wink-heart d-block"></i><div>L.I Outcoming</div></a>
                         </li>
                     @endif
+
+                    <li class="sidenav-item{{ strpos($routeName, 'mkt.kpi.ketqua.') === 0 ? ' active open' : '' }}">
+                        <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-poll d-block"></i><div>Kết quả</div></a>
+
+                        <ul class="sidenav-menu">
+
+                            <li class="sidenav-item{{ $routeName == 'mkt.kpi.ketqua.canhan' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.kpi.ketqua.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Cá nhân</div></a>
+                            </li>
+
+                            <li class="sidenav-item{{ $routeName == 'mkt.kpi.ketqua.nhom' ? ' active' : '' }}">
+                                <a href="{{ route('mkt.kpi.ketqua.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i><div>Nhóm</div></a>
+                            </li>
+
+                        </ul>
+                    </li>
 
                 </ul>
             </li>
