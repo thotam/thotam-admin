@@ -54,6 +54,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('thotam-poster-otc:poster-check-landau')->dailyAt("02:18");
 		$schedule->command('thotam-poster-otc:poster-check-dinhky')->dailyAt("03:18");
 
+		$schedule->command('thotam-data-khachhang:sync-khachhang')->everyTenMinutes()->withoutOverlapping(15);
+
         $schedule->command('cache:clear-expired')->everyFifteenMinutes();
 
         $schedule->command('queue:restart')->hourly();
