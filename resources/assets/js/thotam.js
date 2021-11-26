@@ -1340,3 +1340,42 @@ window.thotam_currency = function (thotam_el, thotam_livewire_id) {
 window.addEventListener("thotam_copy", (event) => {
     navigator.clipboard.writeText(event.detail.data);
 });
+
+//Copy then toastr
+$(document).on("click", "[thotam_copy]", function () {
+    text = $(this).text();
+    navigator.clipboard.writeText(text).then(
+        function () {
+            toastr["success"](
+                "Copy thành công nội dung: " + text,
+                "Thành công",
+                {
+                    positionClass: "toast-top-right",
+                    closeButton: true,
+                    progressBar: true,
+                    timeOut: 3500,
+                    extendedTimeOut: 1500,
+                    preventDuplicates: false,
+                    newestOnTop: true,
+                    rtl:
+                        $("body").attr("dir") === "rtl" ||
+                        $("html").attr("dir") === "rtl",
+                }
+            );
+        },
+        function () {
+            toastr["error"]("Đã sảy ra lỗi khi Copy", "Thất bại", {
+                positionClass: "toast-top-right",
+                closeButton: true,
+                progressBar: true,
+                timeOut: 3500,
+                extendedTimeOut: 1500,
+                preventDuplicates: false,
+                newestOnTop: true,
+                rtl:
+                    $("body").attr("dir") === "rtl" ||
+                    $("html").attr("dir") === "rtl",
+            });
+        }
+    );
+});
