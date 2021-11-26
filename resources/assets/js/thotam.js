@@ -1338,12 +1338,5 @@ window.thotam_currency = function (thotam_el, thotam_livewire_id) {
 
 //Copy từ livewire dispatchBrowserEvent
 window.addEventListener("thotam_copy", (event) => {
-    var $temp = $("<input id='thotamcopy_input'>");
-    $("body").append($temp);
-    $temp.val(event.detail.data);
-    var copyText = document.getElementById("thotamcopy_input");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-    $temp.remove();
+    navigator.clipboard.writeText(event.detail.data);
 });
