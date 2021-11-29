@@ -379,6 +379,36 @@
             </ul>
         </li>
 
+        @if ($home_hr->hasAnyPermission(["view-data-khachhang", "edit-data-khachhang", "delete-data-khachhang", "check-data-khachhang", "export-data-khachhang"]) || $home_hr->is_mkt_thanhvien || $home_hr->is_mkt_quanly)
+
+            <!-- Data -->
+            <li class="sidenav-item{{ strpos($routeName, 'data') === 0 ? ' active open' : '' }}">
+                <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-database d-block"></i><div>Data</div></a>
+
+                <ul class="sidenav-menu">
+
+                        <!-- Khách hàng -->
+                        <li class="sidenav-item{{ strpos($routeName, 'data.khachhang') === 0 ? ' active open' : '' }}">
+                            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon far fa-id-card d-block"></i><div>Khách hàng</div></a>
+
+                            <ul class="sidenav-menu">
+
+                                <li class="sidenav-item{{ $routeName == 'data.khachhang.canhan' ? ' active' : '' }}">
+                                    <a href="{{ route('data.khachhang.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-id-card d-block"></i><div>Cá nhân</div></a>
+                                </li>
+
+                                <li class="sidenav-item{{ $routeName == 'data.khachhang.tochuc' ? ' active' : '' }}">
+                                    <a href="{{ route('data.khachhang.tochuc') }}" class="sidenav-link"><i class="sidenav-icon fas fa-sitemap d-block"></i><div>Tổ chức</div></a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                </ul>
+            </li>
+
+        @endif
+
         <!-- Bỉm sữa -->
         <li class="sidenav-item{{ strpos($routeName, 'bimsua') === 0 ? ' active open' : '' }}">
             <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-baby-carriage d-block"></i><div>Bỉm sữa</div></a>
