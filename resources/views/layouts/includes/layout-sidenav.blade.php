@@ -217,8 +217,8 @@
                             <li class="sidenav-item{{ $routeName == 'mkt.kpi.bangvang' ? ' active' : '' }}">
                                 <a href="{{ route('mkt.kpi.bangvang') }}" class="sidenav-link text-warning"><i class="sidenav-icon fas fa-crown d-block"></i><div>Bảng vàng</div></a>
                             </li>
-
-							{{-- <li class="sidenav-item{{ $routeName == 'mkt.kpi.daotao' ? ' active' : '' }}">
+{{--
+                            <li class="sidenav-item{{ $routeName == 'mkt.kpi.daotao' ? ' active' : '' }}">
                                 <a href="{{ route('mkt.kpi.daotao') }}" class="sidenav-link"><i class="sidenav-icon fab fa-leanpub d-block"></i><div>Đào tạo</div></a>
                             </li> --}}
 
@@ -468,10 +468,10 @@
             <a href="{{ route('trung_thu') }}" class="sidenav-link pr-1 text-orange font-weight-bold"><i class="sidenav-icon fas fa-star d-block"></i><div>Trung thu</div></a>
         </li> --}}
 
-		<!-- Tư nợ -->
-		<li class="sidenav-item{{ $routeName == 'tu_no' ? ' active' : '' }}">
-			<a href="{{ route('tu_no') }}" class="sidenav-link pr-1 text-danger font-weight-bold"><i class="sidenav-icon fas fa-comments-dollar d-block"></i><div>Tư nợ</div></a>
-		</li>
+        <!-- Tư nợ -->
+        <li class="sidenav-item{{ $routeName == 'tu_no' ? ' active' : '' }}">
+            <a href="{{ route('tu_no') }}" class="sidenav-link pr-1 text-danger font-weight-bold"><i class="sidenav-icon fas fa-comments-dollar d-block"></i><div>Tư nợ</div></a>
+        </li>
 
         <!-- Khai báo Y tế -->
         <li class="sidenav-item{{ $routeName == 'khaibaoyte' ? ' active' : '' }}">
@@ -501,6 +501,11 @@
         <!-- Upharma -->
         <li class="sidenav-item{{ $routeName == 'upharma.khaosat' ? ' active' : '' }}">
             <a href="{{ route('upharma.khaosat') }}" class="sidenav-link pr-1 text-success font-weight-bold"><i class="sidenav-icon fas fa-clinic-medical d-block"></i><div>Upharma - Địa điểm</div></a>
+        </li>
+
+        <!-- Review -->
+        <li class="sidenav-item{{ $routeName == 'review' ? ' active' : '' }}">
+            <a href="{{ route('review') }}" class="sidenav-link pr-1 font-weight-bold"><i class="sidenav-icon fas fa-rss-square d-block"></i><div>Review</div></a>
         </li>
 
         <!-- Báo cáo -->
