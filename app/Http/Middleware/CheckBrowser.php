@@ -22,10 +22,10 @@ class CheckBrowser
                 return $next($request);
             } else {
                 return response()->view('errors.dynamic',[
-                    'title' => 'Trình duyệt không được hỗ trợ',
+                    'text_xlarge' => 'Trình duyệt không được hỗ trợ',
                     'error_code' => ':v',
                     'error_description' => 'Không hỗ trợ trình duyệt này',
-                    'text_xlarge' => 'Vui lòng sử dụng Chrome hoặc Safari để tiếp tục truy cập',
+                    'title' => 'Vui lòng sử dụng Chrome hoặc Safari để tiếp tục truy cập',
                 ]);
             }
         } else {
