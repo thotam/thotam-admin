@@ -58,6 +58,10 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('cache:clear-expired')->everyFifteenMinutes();
 
+        $schedule->command('thotam-upharma:update-shop')->dailyAt('11:00')->withoutOverlapping(15);
+        $schedule->command('thotam-upharma:update-shop')->dailyAt('23:00')->withoutOverlapping(15);
+        $schedule->command('thotam-upharma:update-sale')->everyTenMinutes()->withoutOverlapping(15);
+
         $schedule->command('queue:restart')->hourly();
         $schedule->command('queue:retry all')->everySixHours();
         $schedule->command('queue:work --sansdaemon --sleep 3 --tries=10')->everyMinute()->withoutOverlapping(30);
