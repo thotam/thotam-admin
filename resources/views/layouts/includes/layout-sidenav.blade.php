@@ -499,9 +499,39 @@
         @endif
 
         <!-- Upharma -->
-        <li class="sidenav-item{{ $routeName == 'upharma.khaosat' ? ' active' : '' }}">
-            <a href="{{ route('upharma.khaosat') }}" class="sidenav-link pr-1 text-success font-weight-bold"><i class="sidenav-icon fas fa-clinic-medical d-block"></i><div>Upharma - Địa điểm</div></a>
+        <li class="sidenav-item{{ strpos($routeName, 'upharma') === 0 ? ' active open' : '' }}">
+            <a href="javascript:void(0)" class="sidenav-link text-success sidenav-toggle font-weight-bold"><i class="sidenav-icon fas fa-clinic-medical d-block"></i><div>Upharma</div></a>
+
+            <ul class="sidenav-menu">
+
+                <!-- Chăm sóc -->
+                <li class="sidenav-item{{ strpos($routeName, 'upharma.chamsoc') === 0 ? ' active open' : '' }}">
+                    <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-hand-holding-usd d-block"></i><div>Chăm sóc</div></a>
+
+                    <ul class="sidenav-menu">
+
+                        <li class="sidenav-item{{ $routeName == 'upharma.chamsoc.donhang' ? ' active' : '' }}">
+                            <a href="{{ route('upharma.chamsoc.donhang') }}" class="sidenav-link"><i class="sidenav-icon fas fa-shopping-cart d-block"></i><div>Đơn hàng</div></a>
+                        </li>
+
+                        <li class="sidenav-item{{ $routeName == 'upharma.chamsoc.khachhang' ? ' active' : '' }}">
+                            <a href="{{ route('upharma.chamsoc.khachhang') }}" class="sidenav-link"><i class="sidenav-icon fas fa-comments d-block"></i><div>Khách hàng</div></a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="sidenav-item{{ $routeName == 'upharma.khaosat' ? ' active' : '' }}">
+                    <a href="{{ route('upharma.khaosat') }}" class="sidenav-link pr-1"><i class="sidenav-icon fas fa-map-marked-alt d-block"></i><div>Địa điểm</div></a>
+                </li>
+
+            </ul>
         </li>
+
+        {{--  <!-- DTP -->
+        <li class="sidenav-item{{ $routeName == 'up_com' ? ' active' : '' }}">
+            <a href="{{ route('up_com') }}" class="sidenav-link pr-1 text-danger font-weight-bold"><i class="sidenav-icon fab fa-bitcoin d-block"></i><div>DTP</div></a>
+        </li>  --}}
 
         <!-- Review -->
         <li class="sidenav-item{{ $routeName == 'review' ? ' active' : '' }}">
