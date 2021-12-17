@@ -925,13 +925,17 @@ window.thotam_ajax_select2 = function (
 };
 
 //Livewire with datetimepicker
-window.thotam_datetimepicker = function (thotam_el, thotam_livewire_id) {
+window.thotam_datetimepicker = function (
+    thotam_el,
+    thotam_livewire_id,
+    minuteStep = 15
+) {
     $(thotam_el)
         .datetimepicker({
             format: "dd-mm-yyyy hh:ii",
             autoclose: true,
             todayBtn: true,
-            minuteStep: 15,
+            minuteStep: minuteStep,
             todayHighlight: true,
             bootcssVer: 4,
             zIndex: 3050,
