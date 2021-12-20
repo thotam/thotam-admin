@@ -123,6 +123,23 @@ window.addEventListener("show_modal", (event) => {
     $(event.detail).modal("show");
 });
 
+//Ẩn sau đó hiện modal
+window.addEventListener("hide_then_show_modal", (event) => {
+    $(".modal.fade").modal("hide");
+    window.show_modal = event.detail;
+});
+
+$(".modal.fade").on("hidden.bs.modal", function (e) {
+    if (!!window.show_modal) {
+        $.unblockUI();
+        $(window.show_modal).modal("show");
+    }
+});
+
+$(".modal.fade").on("shown.bs.modal", function (e) {
+    window.show_modal = null;
+});
+
 //$.blockUI();
 window.addEventListener("blockUI", function (e) {
     ThoTam_BlockUI();

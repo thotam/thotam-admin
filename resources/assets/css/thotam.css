@@ -712,3 +712,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding-top: 70%;
     background-color: rgb(44, 22, 22);
 }
+
+[thotam-ckeditor] figure.image > img {
+    max-width: 100%;
+}
+
+[thotam-ckeditor] figure.image > figcaption,
+[thotam-ckeditor] figure.image {
+    text-align: center;
+}
