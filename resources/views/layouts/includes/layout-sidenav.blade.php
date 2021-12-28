@@ -404,6 +404,11 @@
                             </ul>
                         </li>
 
+                        <!-- Hồ sơ sản phẩm -->
+                        <li class="sidenav-item{{ $routeName == 'hssp' ? ' active' : '' }}">
+                            <a href="{{ route('hssp') }}" class="sidenav-link pr-1 font-weight-bold"><i class="sidenav-icon fas fa-rss-square d-block"></i><div>Hồ sơ sản phẩm</div></a>
+                        </li>
+
                 </ul>
             </li>
 
