@@ -1400,3 +1400,20 @@ $(document).on("click", "[thotam_copy]", function () {
         }
     );
 });
+
+$(document).on("click", "[tt-blueimp-gallery-img]", function (e) {
+    e.preventDefault();
+
+    console.log(this, e);
+    var links = $($(this).parents("[tt-blueimp-gallery-parent]").get(0)).find(
+        ".img-thumbnail"
+    );
+
+    window.blueimpGallery(links, {
+        container: "#tt-blueimp-gallery-container",
+        carousel: true,
+        hidePageScrollbars: true,
+        disableScroll: true,
+        index: this,
+    });
+});
