@@ -1404,7 +1404,6 @@ $(document).on("click", "[thotam_copy]", function () {
 $(document).on("click", "[tt-blueimp-gallery-img]", function (e) {
     e.preventDefault();
 
-    console.log(this, e);
     var links = $($(this).parents("[tt-blueimp-gallery-parent]").get(0)).find(
         ".img-thumbnail"
     );
@@ -1417,3 +1416,78 @@ $(document).on("click", "[tt-blueimp-gallery-img]", function (e) {
         index: this,
     });
 });
+
+window.thotam_filepond_livewire = function (
+    thotam_el,
+    thotam_livewire_id,
+    max_file = null
+) {
+    const TT_FilePond = FilePond.create(thotam_el, {
+        maxFiles: max_file,
+        credits: {
+            label: "CPC1 Hà Nội",
+            url: "https://cpc1hn.com.vn/",
+        },
+        allowMultiple:
+            $(thotam_el).attr("multiple") != undefined &&
+            !!$(thotam_el).attr("multiple"),
+        server: {
+            process: (
+                fieldName,
+                file,
+                metadata,
+                load,
+                error,
+                progress,
+                abort,
+                transfer,
+                options
+            ) => {
+                thotam_livewire_id.upload(
+                    $(thotam_el).attr("name"),
+                    file,
+                    load,
+                    error,
+                    progress
+                );
+            },
+            revert: (filename, load) => {
+                thotam_livewire_id.removeUpload(
+                    $(thotam_el).attr("name"),
+                    filename,
+                    load
+                );
+            },
+        },
+        onerror(error) {
+            Livewire.emit(
+                "Update_ThotamFileUploadStep",
+                $(thotam_el).attr("name"),
+                3
+            );
+        },
+        oninitfile(file) {
+            Livewire.emit(
+                "Update_ThotamFileUploadStep",
+                $(thotam_el).attr("name"),
+                1
+            );
+        },
+        onprocessfiles() {
+            Livewire.emit(
+                "Update_ThotamFileUploadStep",
+                $(thotam_el).attr("name"),
+                4
+            );
+        },
+        onupdatefiles(files) {
+            if (files.filter((x) => x.status !== 5).length == 0) {
+                Livewire.emit(
+                    "Update_ThotamFileUploadStep",
+                    $(thotam_el).attr("name"),
+                    4
+                );
+            }
+        },
+    });
+};
