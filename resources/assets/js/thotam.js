@@ -1459,13 +1459,6 @@ window.thotam_filepond_livewire = function (
                 );
             },
         },
-        onerror(error) {
-            Livewire.emit(
-                "Update_ThotamFileUploadStep",
-                $(thotam_el).attr("name"),
-                3
-            );
-        },
         oninitfile(file) {
             Livewire.emit(
                 "Update_ThotamFileUploadStep",
