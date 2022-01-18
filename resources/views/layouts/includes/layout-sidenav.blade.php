@@ -379,6 +379,97 @@
             </ul>
         </li>
 
+        <!-- Đào tạo -->
+        <li class="sidenav-item{{ strpos($routeName, 'daotao') === 0 ? ' active open' : '' }}">
+            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-chalkboard-teacher d-block"></i><div>Đào tạo</div></a>
+
+            <ul class="sidenav-menu">
+
+                <!-- Phòng ban -->
+                <li class="sidenav-item{{ strpos($routeName, 'daotao.phongban') === 0 ? ' active open' : '' }}">
+                    <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-users d-block"></i><div>Phòng ban</div></a>
+
+                    <ul class="sidenav-menu">
+
+                        <li class="sidenav-item{{ $routeName == 'daotao.phongban.dttt' ? ' active' : '' }}">
+                            <a href="{{ route('daotao.phongban.dttt') }}" class="sidenav-link"><i class="sidenav-icon fab fa-leanpub d-block"></i><div>ĐTTT</div></a>
+                        </li>
+
+                        <li class="sidenav-item{{ $routeName == 'daotao.phongban.kttx' ? ' active' : '' }}">
+                            <a href="{{ route('daotao.phongban.kttx') }}" class="sidenav-link"><i class="sidenav-icon fas fa-newspaper d-block"></i><div>KTTX</div></a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <!-- Sản phẩm -->
+                <li class="sidenav-item{{ strpos($routeName, 'daotao.sanpham') === 0 ? ' active open' : '' }}">
+                    <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fab fa-product-hunt d-block"></i><div>Sản phẩm</div></a>
+
+                    <ul class="sidenav-menu">
+
+                        <li class="sidenav-item{{ $routeName == 'daotao.sanpham.lichdaotao' ? ' active' : '' }}">
+                            <a href="{{ route('daotao.sanpham.lichdaotao') }}" class="sidenav-link"><i class="sidenav-icon fas fa-calendar-alt d-block"></i><div>Lịch đào tạo</div></a>
+                        </li>
+
+                        <li class="sidenav-item{{ $routeName == 'daotao.sanpham.kehoach' ? ' active' : '' }}">
+                            <a href="{{ route('daotao.sanpham.kehoach') }}" class="sidenav-link"><i class="sidenav-icon fas fa-calendar-check d-block"></i><div>Kế hoạch</div></a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                @if ($home_hr->hasAnyRole(["nv-daotao", "super-admin"]))
+                    <!-- Quản lý -->
+                    <li class="sidenav-item{{ strpos($routeName, 'daotao.quanly') === 0 ? ' active open' : '' }}">
+                        <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-users-cog d-block"></i><div>Quản lý</div></a>
+
+                        <ul class="sidenav-menu">
+
+                            <li class="sidenav-item{{ $routeName == 'daotao.quanly.nhanvien' ? ' active' : '' }}">
+                                <a href="{{ route('daotao.quanly.nhanvien') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i><div>Nhân viên KD</div></a>
+                            </li>
+
+                            <li class="sidenav-item{{ $routeName == 'daotao.quanly.nguoidexuat' ? ' active' : '' }}">
+                                <a href="{{ route('daotao.quanly.nguoidexuat') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user-plus d-block"></i><div>Người đề xuất</div></a>
+                            </li>
+
+                            <li class="sidenav-item{{ $routeName == 'daotao.quanly.bpdt' ? ' active' : '' }}">
+                                <a href="{{ route('daotao.quanly.bpdt') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user-graduate d-block"></i><div>BP Đào tạo</div></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                @endif
+
+                @if ($home_hr->hasAnyRole(["nv-daotao", "super-admin"]) || $home_hr->hasAnyPermission(['tonghop-daotao-sanpham', 'tonghop-baocao-dttt', 'tonghop-baocao-kttx']))
+
+                    <!-- Phòng ban -->
+                    <li class="sidenav-item{{ strpos($routeName, 'daotao.tonghop') === 0 ? ' active open' : '' }}">
+                        <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-file-excel d-block"></i><div>Tổng hợp</div></a>
+
+                        <ul class="sidenav-menu">
+
+                            <li class="sidenav-item{{ $routeName == 'daotao.tonghop.sanpham' ? ' active' : '' }}">
+                                <a href="{{ route('daotao.tonghop.sanpham') }}" class="sidenav-link"><i class="sidenav-icon fab fa-product-hunt d-block"></i><div>ĐTSP</div></a>
+                            </li>
+
+                            <li class="sidenav-item{{ $routeName == 'daotao.tonghop.dttt' ? ' active' : '' }}">
+                                <a href="{{ route('daotao.tonghop.dttt') }}" class="sidenav-link"><i class="sidenav-icon fab fa-leanpub d-block"></i><div>ĐTTT</div></a>
+                            </li>
+
+                            <li class="sidenav-item{{ $routeName == 'daotao.tonghop.kttx' ? ' active' : '' }}">
+                                <a href="{{ route('daotao.tonghop.kttx') }}" class="sidenav-link"><i class="sidenav-icon fas fa-newspaper d-block"></i><div>KTTX</div></a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                @endif
+
+            </ul>
+        </li>
+
         @if ($home_hr->hasAnyPermission(["view-data-khachhang", "edit-data-khachhang", "delete-data-khachhang", "check-data-khachhang", "export-data-khachhang"]) || $home_hr->is_mkt_thanhvien || $home_hr->is_mkt_quanly)
 
             <!-- Data -->
