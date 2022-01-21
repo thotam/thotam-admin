@@ -470,6 +470,22 @@
             </ul>
         </li>
 
+        <!-- Kaizen -->
+        <li class="sidenav-item{{ strpos($routeName, 'kaizen.') === 0 ? ' active open' : '' }}">
+            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fab fa-korvue d-block"></i><div>Kaizen</div></a>
+
+            <ul class="sidenav-menu">
+
+                <li class="sidenav-item{{ $routeName == 'kaizen.canhan' ? ' active' : '' }}">
+                    <a href="{{ route('kaizen.canhan') }}" class="sidenav-link"><i class="sidenav-icon fab fa-kickstarter-k d-block"></i><div>Cá nhân</div></a>
+                </li>
+
+                <li class="sidenav-item{{ $routeName == 'kaizen.nhom' ? ' active' : '' }}">
+                    <a href="{{ route('kaizen.nhom') }}" class="sidenav-link"><i class="sidenav-icon fab fa-kickstarter d-block"></i><div>Nhóm</div></a>
+                </li>
+            </ul>
+        </li>
+
         @if ($home_hr->hasAnyPermission(["view-data-khachhang", "edit-data-khachhang", "delete-data-khachhang", "check-data-khachhang", "export-data-khachhang"]) || $home_hr->is_mkt_thanhvien || $home_hr->is_mkt_quanly)
 
             <!-- Data -->
