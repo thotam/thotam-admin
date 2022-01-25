@@ -1484,3 +1484,66 @@ window.thotam_filepond_livewire = function (
         },
     });
 };
+
+window.thotam_livewire_filepond = function (
+    thotam_el,
+    url,
+    token,
+    max_file = null
+) {
+    var _modalName = $(thotam_el).attr("name");
+
+    FilePond.create(thotam_el, {
+        server: {
+            url: url,
+            headers: {
+                "X-CSRF-TOKEN": token,
+            },
+        },
+        maxFiles: max_file,
+        chunkUploads: true,
+        chunkSize: 10485760,
+        credits: {
+            label: "CPC1 Hà Nội",
+            url: "https://cpc1hn.com.vn/",
+        },
+        oninit() {
+            Livewire.emit(
+                "lftSetMultiple",
+                _modalName,
+                !!$(thotam_el).attr("multiple")
+            );
+        },
+        oninitfile(file) {
+            Livewire.emit("lftStatusUpdate", _modalName, 1, file.id);
+        },
+        onprocessfilestart(file) {
+            Livewire.emit("lftStatusUpdate", _modalName, 2, file.id);
+        },
+        onprocessfilerevert(file) {
+            Livewire.emit("lftRemove", _modalName, file.id);
+        },
+        onremovefile(error, file) {
+            if (!error) {
+                Livewire.emit("lftRemove", _modalName, file.id);
+            }
+        },
+        onerror(error, file, status) {
+            Livewire.emit("lftStatusUpdate", _modalName, 3, file.id);
+        },
+        onprocessfile(error, file) {
+            if (file.status == 5) {
+                Livewire.emit(
+                    "lftStatusUpdate",
+                    _modalName,
+                    4,
+                    file.id,
+                    file.serverId
+                );
+            }
+        },
+        onprocessfiles() {
+            Livewire.emit("lftStatusUpdate", _modalName, 4);
+        },
+    });
+};
