@@ -1547,3 +1547,17 @@ window.thotam_livewire_filepond = function (
         },
     });
 };
+
+window.thotam_livewire_tagsinput = function (thotam_el, thotam_livewire_id) {
+    var _modalName = $(thotam_el).attr("name");
+
+    $(thotam_el).tagsinput({ tagClass: "badge badge-success" });
+
+    $(thotam_el)
+        .on("itemAdded", function (event) {
+            thotam_livewire_id.set(_modalName, $(thotam_el).val());
+        })
+        .on("itemRemoved", function (event) {
+            thotam_livewire_id.set(_modalName, $(thotam_el).val());
+        });
+};
