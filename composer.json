@@ -15,28 +15,65 @@
         }
     ],
     "require": {
-        "awobaz/compoships": "^2.1",
-        "php": "^7.3|^8.0",
+        "php": "^8.0",
         "arifhp86/laravel-clear-expired-cache-file": "^0.0.4",
+        "awobaz/compoships": "^2.1",
         "endroid/qr-code": "^4.3",
-        "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.3",
+        "guzzlehttp/psr7": "^1.8",
         "hisorange/browser-detect": "^4.3",
-        "wildside/userstamps": "^2.1",
-        "yajra/laravel-datatables": "1.5",
-        "queueworker/sansdaemon": "^1.2",
-        "tecnickcom/tcpdf": "^6.4"
+        "laravel/framework": "^9.0",
+        "laravel/tinker": "^2.5",
+        "livewire/livewire": "^2.5",
+        "thotam/sansdaemon": "dev-master",
+        "tecnickcom/tcpdf": "^6.4",
+        "thotam/thotam-auth": "dev-main",
+        "thotam/thotam-baidang-sanpham": "dev-main",
+        "thotam/thotam-baocao-dinhky": "dev-main",
+        "thotam/thotam-baocao-lantoa": "dev-main",
+        "thotam/thotam-baocao-tuyendung": "dev-main",
+        "thotam/thotam-cpc1hn-bimsua": "dev-main",
+        "thotam/thotam-cpc1hn-daotao": "dev-main",
+        "thotam/thotam-cpc1hn-form": "dev-main",
+        "thotam/thotam-cpc1hn-hssp": "dev-main",
+        "thotam/thotam-cpc1hn-product": "dev-main",
+        "thotam/thotam-cpc1hn-review": "dev-main",
+        "thotam/thotam-cpc1hn-tuno": "dev-main",
+        "thotam/thotam-data-khachhang": "*",
+        "thotam/thotam-donghanh-sechia": "dev-main",
+        "thotam/thotam-file-library": "dev-main",
+        "thotam/thotam-gmail": "dev-main",
+        "thotam/thotam-hoithao-etc": "dev-main",
+        "thotam/thotam-hr": "dev-main",
+        "thotam/thotam-icpc1hn-api": "dev-main",
+        "thotam/thotam-kaizen": "dev-main",
+        "thotam/thotam-kbyt": "dev-main",
+        "thotam/thotam-laravel-datatables-filter": "dev-main",
+        "thotam/thotam-livewire-filepond": "dev-main",
+        "thotam/thotam-mkt": "dev-main",
+        "thotam/thotam-mkt-baocao-hd": "dev-main",
+        "thotam/thotam-mkt-congviec": "dev-main",
+        "thotam/thotam-mkt-kpi": "dev-main",
+        "thotam/thotam-mkt-mentor": "dev-main",
+        "thotam/thotam-muoingon": "dev-main",
+        "thotam/thotam-new-buddy": "dev-main",
+        "thotam/thotam-permission": "dev-main",
+        "thotam/thotam-plus": "dev-main",
+        "thotam/thotam-poster-3d": "dev-main",
+        "thotam/thotam-poster-otc": "dev-main",
+        "thotam/thotam-team": "dev-main",
+        "thotam/thotam-thuvien": "dev-main",
+        "thotam/thotam-upharma": "*",
+        "wildside/userstamps": "dev-master",
+        "yajra/laravel-datatables": "1.5"
     },
     "require-dev": {
-        "facade/ignition": "^2.5",
+        "spatie/laravel-ignition": "^1.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
-        "nunomaduro/collision": "^5.0",
+        "nunomaduro/collision": "^6.0",
         "phpunit/phpunit": "^9.3.3"
     },
     "config": {
@@ -74,5 +111,273 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-auth",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-permission",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-hr",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-plus",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-file-library",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-cpc1hn-daotao",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-kaizen",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-gmail",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-new-buddy",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-baocao-dinhky",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-baocao-lantoa",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-baocao-tuyendung",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-hoithao-etc",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-cpc1hn-product",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-poster",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-muoingon",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-mkt-congviec",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-baidang-sanpham",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-mkt-mentor",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-mkt-kpi",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-icpc1hn-api",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-mkt",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-laravel-datatables-filter",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-poster-3d",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-poster-otc",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-mkt-baocao-hd",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-cpc1hn-bimsua",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-donghanh-sechia",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-team",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-cpc1hn-form",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-cpc1hn-tuno",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-cpc1hn-review",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-cpc1hn-hssp",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-data-khachhang",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-upharma",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-thuvien",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-livewire-filepond",
+            "options": {
+                "symlink": false
+            }
+        },
+        {
+            "type": "path",
+            "url": "D:/Users/Documents/GitHub/thotam-kbyt",
+            "options": {
+                "symlink": false
+            }
+        }
+    ]
 }
