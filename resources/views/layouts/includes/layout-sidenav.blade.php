@@ -279,7 +279,7 @@
         @endif
 
         <!-- Thư viện -->
-        <li class="sidenav-item{{ strpos($routeName, 'thuvien.') === 0 || $routeName == 'hssp' ? ' active open' : '' }}">
+        <li class="sidenav-item{{ strpos($routeName, 'thuvien.') === 0 ? ' active open' : '' }}">
             <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-book d-block"></i><div>Thư viện</div></a>
 
             <ul class="sidenav-menu">
@@ -300,9 +300,23 @@
                     <a href="{{ route('thuvien.totoa') }}" class="sidenav-link"><i class="sidenav-icon fas fa-sticky-note d-block"></i><div>Tờ toa</div></a>
                 </li>
 
+            </ul>
+        </li>
+
+        <!-- Sản phẩm -->
+        <li class="sidenav-item{{ strpos($routeName, 'sanpham.') === 0 || $routeName == 'hssp' ? ' active open' : '' }}">
+            <a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-podcast d-block"></i><div>Sản phẩm</div></a>
+
+            <ul class="sidenav-menu">
+
+                <!-- Sản phẩm mới -->
+                <li class="sidenav-item{{ $routeName == 'sanpham.spm' ? ' active' : '' }}">
+                    <a href="{{ route('sanpham.spm') }}" class="sidenav-link"><i class="sidenav-icon fas fa-lightbulb d-block"></i><div>Sản phẩm mới</div></a>
+                </li>
+
                 <!-- Hồ sơ sản phẩm -->
                 <li class="sidenav-item{{ $routeName == 'hssp' ? ' active' : '' }}">
-                    <a href="{{ route('hssp') }}" class="sidenav-link pr-1 font-weight-bold"><i class="sidenav-icon fas fa-rss-square d-block"></i><div>Hồ sơ sản phẩm</div></a>
+                    <a href="{{ route('hssp') }}" class="sidenav-link pr-1 font-weight-bold"><i class="sidenav-icon fab fa-product-hunt d-block"></i><div>Hồ sơ sản phẩm</div></a>
                 </li>
 
             </ul>
