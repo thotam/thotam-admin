@@ -1139,78 +1139,33 @@ window.thotam_gallery = function (element) {
 };
 
 //Livewire with ckeditor
-window.thotam_ckeditor = function (thotam_el, thotam_dispatch) {
+window.thotam_ckeditor = function (
+    thotam_el,
+    thotam_dispatch,
+    url,
+    token,
+    group = true
+) {
     ClassicEditor.create(thotam_el, {
-        removePlugins: ["Title"],
+        removePlugins: ["Title", "MediaEmbedToolbar"],
 
         toolbar: {
-            items: [
-                "heading",
-                "|",
-                "bold",
-                "italic",
-                "underline",
-                "strikethrough",
-                "link",
-                "subscript",
-                "superscript",
-                "bulletedList",
-                "numberedList",
-                "|",
-                "alignment",
-                "fontFamily",
-                "fontSize",
-                "fontColor",
-                "fontBackgroundColor",
-                "highlight",
-                "|",
-                "indent",
-                "outdent",
-                "|",
-                //"imageUpload",
-                "blockQuote",
-                "insertTable",
-                "mediaEmbed",
-                "code",
-                "codeBlock",
-                "horizontalLine",
-                //"MathType",
-                //"ChemType",
-                "specialCharacters",
-                //"todoList",
-                //"pageBreak",
-                "|",
-                "undo",
-                "redo",
-                "removeFormat",
-                //"|",
-                //"exportPdf"
-            ],
+            shouldNotGroupWhenFull: group,
         },
-        language: "vi",
-        image: {
-            toolbar: [
-                "imageTextAlternative",
-                "imageStyle:full",
-                "imageStyle:side",
-            ],
-        },
-        table: {
-            contentToolbar: [
-                "tableColumn",
-                "tableRow",
-                "mergeTableCells",
-                "tableCellProperties",
-                "tableProperties",
-            ],
-            tableProperties: {
-                // ...
-            },
-            // Configuration of the TableCellProperties plugin.
-            tableCellProperties: {
-                // ...
+
+        simpleUpload: {
+            // The URL that the images are uploaded to.
+            uploadUrl: url,
+
+            // Enable the XMLHttpRequest.withCredentials property.
+            withCredentials: true,
+
+            // Headers sent along with the XMLHttpRequest to the upload server.
+            headers: {
+                "X-CSRF-TOKEN": token,
             },
         },
+
         licenseKey: "",
     })
         .then(function (editor) {
