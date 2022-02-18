@@ -300,6 +300,16 @@
                     <a href="{{ route('thuvien.totoa') }}" class="sidenav-link"><i class="sidenav-icon fas fa-sticky-note d-block"></i><div>Tờ toa</div></a>
                 </li>
 
+                <li class="sidenav-item{{ $routeName == 'thuvien.toroi' ? ' active' : '' }}">
+                    <a href="{{ route('thuvien.toroi') }}" class="sidenav-link"><i class="sidenav-icon fas fa-file-image d-block"></i><div>Tờ rơi</div></a>
+                </li>
+
+				@if (($home_hr->is_mkt_quanly || $home_hr->is_mkt_thanhvien || $home_hr->hasAnyPermission(["add-doitac", "view-doitac", "edit-doitac", "delete-doitac", "duyet-doitac", "view-all-doitac"])))
+					<li class="sidenav-item{{ $routeName == 'thuvien.doitac' ? ' active' : '' }}">
+						<a href="{{ route('thuvien.doitac') }}" class="sidenav-link"><i class="sidenav-icon fas fa-handshake d-block"></i><div>Đối tác</div></a>
+					</li>
+				@endif
+
             </ul>
         </li>
 
