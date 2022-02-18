@@ -1153,6 +1153,18 @@ window.thotam_ckeditor = function (
             shouldNotGroupWhenFull: group,
         },
 
+        image: {
+            toolbar: [
+                "toggleImageCaption",
+                "imageTextAlternative",
+                "|",
+                "imageStyle:inline",
+                "imageStyle:block",
+                "imageStyle:side",
+                "linkImage",
+            ],
+        },
+
         simpleUpload: {
             // The URL that the images are uploaded to.
             uploadUrl: url,
