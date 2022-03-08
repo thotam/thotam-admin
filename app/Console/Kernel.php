@@ -39,7 +39,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('thotam-icpc1hn-api:icpc1hn-renew-token')->dailyAt('05:30')->withoutOverlapping(15);
 
-        $schedule->command('thotam-mkt-kpi:generate-tdtp')->twiceMonthly(1, 25,'07:23');
+        $schedule->command('thotam-mkt-kpi:generate-tdtp')->twiceMonthly(1, 25, '07:23');
         $schedule->command('thotam-mkt-kpi:generate-kpi-canhan')->dailyAt('00:13');
         $schedule->command('thotam-mkt-kpi:generate-kpi-nhom')->dailyAt('05:13');
 
@@ -52,15 +52,19 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('thotam-poster-otc:poster-update-place-id')->dailyAt("01:18");
         $schedule->command('thotam-poster-otc:poster-check-landau')->dailyAt("02:18");
-		$schedule->command('thotam-poster-otc:poster-check-dinhky')->dailyAt("03:18");
+        $schedule->command('thotam-poster-otc:poster-check-dinhky')->dailyAt("03:18");
 
-		$schedule->command('thotam-data-khachhang:sync-khachhang')->everyTenMinutes()->withoutOverlapping(15);
+        $schedule->command('thotam-data-khachhang:sync-khachhang')->everyTenMinutes()->withoutOverlapping(15);
 
         $schedule->command('cache:clear-expired')->everyFifteenMinutes();
 
         $schedule->command('thotam-upharma:update-shop')->dailyAt('11:00')->withoutOverlapping(15);
         $schedule->command('thotam-upharma:update-shop')->dailyAt('23:00')->withoutOverlapping(15);
         $schedule->command('thotam-upharma:update-sale')->everyTenMinutes()->withoutOverlapping(15);
+
+        $schedule->command('thotam-mkt:auto-call')->dailyAt('13:00')->withoutOverlapping(15);
+        $schedule->command('thotam-mkt:auto-call')->dailyAt('23:00')->withoutOverlapping(15);
+        $schedule->command('thotam-mkt:auto-call')->dailyAt('23:30')->withoutOverlapping(15);
 
         $schedule->command('queue:restart')->hourly();
         $schedule->command('queue:retry all')->everySixHours();
@@ -75,7 +79,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
