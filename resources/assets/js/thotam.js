@@ -945,7 +945,8 @@ window.thotam_ajax_select2 = function (
 window.thotam_datetimepicker = function (
     thotam_el,
     thotam_livewire_id,
-    minuteStep = 15
+    minuteStep = 15,
+    pickerPosition = "top-left"
 ) {
     $(thotam_el)
         .datetimepicker({
@@ -957,7 +958,7 @@ window.thotam_datetimepicker = function (
             bootcssVer: 4,
             zIndex: 3050,
             language: "vi",
-            pickerPosition: "top-left",
+            pickerPosition: pickerPosition,
             weekStart: 1,
         })
         .on("hide", function (e) {
@@ -1210,7 +1211,26 @@ $.fn.modal.Constructor.prototype._enforceFocus = function () {
 
 //Livewire with file_pond
 if (typeof FilePond !== "undefined" && FilePond !== null) {
-    FilePond.registerPlugin(FilePondPluginFileValidateType);
+    if (
+        typeof FilePondPluginFileValidateType !== "undefined" &&
+        FilePondPluginFileValidateType !== null
+    ) {
+        FilePond.registerPlugin(FilePondPluginFileValidateType);
+    }
+
+    if (
+        typeof FilePondPluginImageExifOrientation !== "undefined" &&
+        FilePondPluginImageExifOrientation !== null
+    ) {
+        FilePond.registerPlugin(FilePondPluginImageExifOrientation);
+    }
+
+    if (
+        typeof FilePondPluginImagePreview !== "undefined" &&
+        FilePondPluginImagePreview !== null
+    ) {
+        FilePond.registerPlugin(FilePondPluginImagePreview);
+    }
 }
 
 window.thotam_file_pond = function (
