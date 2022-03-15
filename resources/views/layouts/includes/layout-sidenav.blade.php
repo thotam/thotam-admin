@@ -124,6 +124,31 @@ $home_hr = Auth::user()->hr;
 			</ul>
 		</li>
 
+		@if ($home_hr->hasAnyPermission(['view-home-tintuc', 'edit-home-tintuc', 'add-home-tintuc', 'delete-home-tintuc', 'view-home-codong', 'edit-home-codong', 'add-home-codong', 'delete-home-codong']))
+			<!-- Home -->
+			<li class="sidenav-item{{ strpos($routeName, 'home.') === 0 ? ' active open' : '' }}">
+				<a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-network-wired d-block"></i>
+					<div>CPC1HN</div>
+				</a>
+
+				<ul class="sidenav-menu">
+
+					<li class="sidenav-item{{ $routeName == 'home.tintuc' ? ' active' : '' }}">
+						<a href="{{ route('home.tintuc') }}" class="sidenav-link"><i class="sidenav-icon fas fa-newspaper d-block"></i>
+							<div>Tin tức</div>
+						</a>
+					</li>
+
+					<li class="sidenav-item{{ $routeName == 'home.codong' ? ' active' : '' }}">
+						<a href="{{ route('home.codong') }}" class="sidenav-link"><i class="sidenav-icon fas fa-layer-group d-block"></i>
+							<div>Cổ đông</div>
+						</a>
+					</li>
+
+				</ul>
+			</li>
+		@endif
+
 		@if (optional(optional(Auth::user())->hr)->is_mkt_thanhvien || optional(optional(Auth::user())->hr)->is_mkt_quanly || optional(optional(Auth::user())->hr)->hasAnyRole(['super-admin', 'admin-mkt']))
 			<!-- TT-MKT -->
 			<li class="sidenav-item{{ strpos($routeName, 'mkt.') === 0 ? ' active open' : '' }}">
@@ -577,6 +602,30 @@ $home_hr = Auth::user()->hr;
 
 			</ul>
 		</li>
+
+		<!-- Speaker -->
+		<li class="sidenav-item{{ strpos($routeName, 'speaker.') === 0 ? ' active open' : '' }}">
+			<a href="javascript:void(0)" class="sidenav-link sidenav-toggle"><i class="sidenav-icon fas fa-headset d-block"></i>
+				<div>Speaker</div>
+			</a>
+
+			<ul class="sidenav-menu">
+
+				<li class="sidenav-item{{ $routeName == 'speaker.canhan' ? ' active' : '' }}">
+					<a href="{{ route('speaker.canhan') }}" class="sidenav-link"><i class="sidenav-icon fas fa-user d-block"></i>
+						<div>Cá nhân</div>
+					</a>
+				</li>
+
+				<li class="sidenav-item{{ $routeName == 'speaker.nhom' ? ' active' : '' }}">
+					<a href="{{ route('speaker.nhom') }}" class="sidenav-link"><i class="sidenav-icon fas fa-users d-block"></i>
+						<div>Nhóm</div>
+					</a>
+				</li>
+
+			</ul>
+		</li>
+
 
 		<!-- Đào tạo -->
 		<li class="sidenav-item{{ strpos($routeName, 'daotao') === 0 ? ' active open' : '' }}">
