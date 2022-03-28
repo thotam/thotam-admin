@@ -15,7 +15,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
 
 	<!-- Icons. Uncomment required icon fonts -->
-	<link rel="stylesheet" href="{{ mix('/vendor/fonts/fontawesome/all.css') }}">
+	<link rel="stylesheet" href="{{ mix('/vendor/fonts/fontawesome/css/all.css') }}">
 	<link rel="stylesheet" href="{{ mix('/vendor/fonts/ionicons.css') }}">
 	<link rel="stylesheet" href="{{ mix('/vendor/fonts/linearicons.css') }}">
 	<link rel="stylesheet" href="{{ mix('/vendor/fonts/open-iconic.css') }}">
