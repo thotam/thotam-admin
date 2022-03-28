@@ -50,6 +50,11 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware(['web'])
                 ->namespace($this->namespace)
+                ->domain('beta.' . env('APP_DOMAIN', 'cpc1hn.com.vn'))
+                ->group(base_path('routes/guest.php'));
+
+            Route::middleware(['web'])
+                ->namespace($this->namespace)
                 ->domain(env('APP_DOMAIN', 'cpc1hn.com.vn'))
                 ->group(base_path('routes/main_web.php'));
         });
